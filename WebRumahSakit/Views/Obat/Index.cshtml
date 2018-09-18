@@ -134,7 +134,7 @@
     </div><!-- .animated -->
     <!--modal insert-->
     <div class="modal fade" id="insertObat" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
@@ -143,12 +143,37 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>
-                        There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
-                        and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
-                        Dolichohippus. The latter resembles an ass, to which it is closely related, while the former two are more
-                        horse-like. All three belong to the genus Equus, along with other living equids.
-                    </p>
+                    <form action="" method="post" class="">
+                        <div class="form-group">
+                            <label for="nf-email" class=" form-control-label">Medicine Name</label>
+                            <input type="text" id="obatName" name="obatName" placeholder="Enter Medicine Name.." class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label for="nf-password" class=" form-control-label">Type</label>
+                            </div>
+                            <div>
+                                <select class="standardSelect" tabindex="1">
+                                    <option value="">-Select Type-</option>
+                                    <option value="2">Cair</option>
+                                    <option value="3">Kapsul</option>
+                                    <option value="3">Tablet</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nf-password" class=" form-control-label">Price</label>
+                            <input type="number" id="obatPrice" name="obatPrice" placeholder="Enter Price.." class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="nf-password" class=" form-control-label">Stock</label>
+                            <input type="number" id="obatStock" name="obatStock" placeholder="Enter Stock.." class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="nf-password" class=" form-control-label">Description</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
