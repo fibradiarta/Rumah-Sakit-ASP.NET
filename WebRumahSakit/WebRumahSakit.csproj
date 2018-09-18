@@ -173,8 +173,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ObatController.cs" />
+    <Compile Include="Controllers\PasienController.cs" />
     <Compile Include="Controllers\PegawaiController.cs" />
     <Compile Include="Controllers\PerawatController.cs" />
+    <Compile Include="Controllers\ResepsionisController.cs" />
     <Compile Include="Controllers\RuanganController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1418,6 +1420,15 @@
     <Content Include="Views\Perawat\Index.cshtml" />
     <Content Include="Views\Obat\Index.cshtml" />
     <Content Include="Views\Ruangan\Index.cshtml" />
+    <Content Include="Views\Resepsionis\Index.cshtml" />
+    <Content Include="Views\Pasien\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutResepsionis.cshtml" />
+    <Content Include="Views\Shared\_PartialSideResepsionis.cshtml" />
+    <Content Include="Views\Shared\_PartialHeaderResepsionis.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Shared\_LayoutKasir.cshtml" />
+    <Content Include="Views\Shared\_PartialSideBarKasir.cshtml" />
+    <Content Include="Views\Shared\_PartialHeaderKasir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
