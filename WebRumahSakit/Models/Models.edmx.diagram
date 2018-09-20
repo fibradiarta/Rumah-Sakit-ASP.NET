@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c44695db50664ac8884397dfd84618ce" Name="Diagram1">
+        <EntityTypeShape EntityType="DBRSModel.DETAIL_TRANSAKSI_RUANGAN" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.DETIL_TRANSAKSI_OBAT" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.DOKTER" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.JADWAL_DOKTER" Width="1.5" PointX="10.5" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.JADWAL_PERAWAT" Width="1.5" PointX="10.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.JENIS_OBAT" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.JENIS_RUANGAN" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.OBAT" Width="1.5" PointX="7.5" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.PASIEN" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.PEGAWAI" Width="1.5" PointX="7.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.PERAWAT" Width="1.5" PointX="10.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.POLI" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.RAWAT_INAP" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.RELASI_JADWAL_DOKTER" Width="1.5" PointX="12.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.RELASI_JADWAL_PERAWAT" Width="1.5" PointX="12.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.RELASI_TRANSAKSI_DOKTER" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.RELASI_TRANSAKSI_PEGAWAI" Width="1.5" PointX="9.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.RELASI_TRANSAKSI_PERAWAT" Width="1.5" PointX="12.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.ROLE" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.RUANGAN" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.SPECIALI" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.TIPE_POLI" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRSModel.TRANSAKSI" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="DBRSModel.FK_DETAIL_T_REFERENCE_RUANGAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_TRANSAKS_REFERENCE_DETAIL_T" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_DETIL_TR_REFERENCE_OBAT" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_DETIL_TR_REFERENCE_TRANSAKS" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_DOKTER_POLI" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_DOKTER_REFERENCE_SPECIALI" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_J_REFERENCE_DOKTER" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_T_REFERENCE_DOKTER" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_J_REFERENCE_JADWAL_D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_J_REFERENCE_JADWAL_P" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_OBAT_REFERENCE_JENIS_OB" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RUANGAN_REFERENCE_JENIS_RU" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_TRANSAKS_REFERENCE_PASIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_PEGAWAI_REFERENCE_ROLE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_T_REFERENCE_PEGAWAI" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_J_REFERENCE_PERAWAT" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_T_REFERENCE_PERAWAT" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_POLI_TIPE_POLI" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_TRANSAKS_REFERENCE_RAWAT_IN" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_T_REFERENCE_TRANSAKS" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_T_REFERENCE_TRANSAKSI_P" ManuallyRouted="false" />
+        <AssociationConnector Association="DBRSModel.FK_RELASI_TT_REFERENCE_TRANSAKSI" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutKasir.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li class="active">Transaksi</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <button class="btn btn-success btn-sm" id="insert" data-toggle="modal" data-target="#insertTransaksi"><i class="fa fa-plus-square"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID Transaksi</th>
+                                    <th>Nama Pasien</th>
+                                    <th>Ruangan</th>
+                                    <th>Rawat Inap</th>
+                                    <th>Tanggal Transaksi</th>
+                                    <th>Status</th>
+                                    <th>Keluhan</th>
+                                    <th>Total Harga</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Yuli</td>
+                                    <td>Melati</td>
+                                    <td>-</td>
+                                    <td>01-01-2018</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>50000</td>
+                                    <td>
+                                        <a href="@Url.Action("Details","Transaksi")"><button class="btn btn-primary btn-sm" id="detail"><i class="fa fa-info-circle"></i></button></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Agus</td>
+                                    <td>Melati</td>
+                                    <td>-</td>
+                                    <td>01-01-2018</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>50000</td>
+                                    <td>
+                                        <a href="@Url.Action("Details","Transaksi")"><button class="btn btn-primary btn-sm" id="detail"><i class="fa fa-info-circle"></i></button></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Septi</td>
+                                    <td>Melati</td>
+                                    <td>-</td>
+                                    <td>01-01-2018</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>50000</td>
+                                    <td>
+                                        <a href="@Url.Action("Details","Transaksi")"><button class="btn btn-primary btn-sm" id="detail"><i class="fa fa-info-circle"></i></button></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Okta</td>
+                                    <td>Melati</td>
+                                    <td>-</td>
+                                    <td>01-01-2018</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>50000</td>
+                                    <td>
+                                        <a href="@Url.Action("Details","Transaksi")"><button class="btn btn-primary btn-sm" id="detail"><i class="fa fa-info-circle"></i></button></a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .animated -->
+</div>
+
+

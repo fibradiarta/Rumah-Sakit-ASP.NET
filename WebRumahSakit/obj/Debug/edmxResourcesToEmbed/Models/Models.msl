@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBRSModelStoreContainer" CdmEntityContainer="DBRSEntities3">
+    <EntitySetMapping Name="DETAIL_TRANSAKSI_RUANGAN">
+      <EntityTypeMapping TypeName="DBRSModel.DETAIL_TRANSAKSI_RUANGAN">
+        <MappingFragment StoreEntitySet="DETAIL_TRANSAKSI_RUANGAN">
+          <ScalarProperty Name="DETIL_RUANGAN_ID" ColumnName="DETIL_RUANGAN_ID" />
+          <ScalarProperty Name="RUANGAN_ID" ColumnName="RUANGAN_ID" />
+          <ScalarProperty Name="JUMLAH_HARI" ColumnName="JUMLAH_HARI" />
+          <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETIL_TRANSAKSI_OBAT">
+      <EntityTypeMapping TypeName="DBRSModel.DETIL_TRANSAKSI_OBAT">
+        <MappingFragment StoreEntitySet="DETIL_TRANSAKSI_OBAT">
+          <ScalarProperty Name="DETIL_OBAT_ID" ColumnName="DETIL_OBAT_ID" />
+          <ScalarProperty Name="OBAT_ID" ColumnName="OBAT_ID" />
+          <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+          <ScalarProperty Name="JUMLAH" ColumnName="JUMLAH" />
+          <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOKTERs">
+      <EntityTypeMapping TypeName="DBRSModel.DOKTER">
+        <MappingFragment StoreEntitySet="DOKTER">
+          <ScalarProperty Name="DOKTER_ID" ColumnName="DOKTER_ID" />
+          <ScalarProperty Name="SPECIALIS_ID" ColumnName="SPECIALIS_ID" />
+          <ScalarProperty Name="POLI_ID" ColumnName="POLI_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+          <ScalarProperty Name="NO_TELP" ColumnName="NO_TELP" />
+          <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JADWAL_DOKTER">
+      <EntityTypeMapping TypeName="DBRSModel.JADWAL_DOKTER">
+        <MappingFragment StoreEntitySet="JADWAL_DOKTER">
+          <ScalarProperty Name="JADWAL_ID" ColumnName="JADWAL_ID" />
+          <ScalarProperty Name="HARI" ColumnName="HARI" />
+          <ScalarProperty Name="JAM_MULAI" ColumnName="JAM_MULAI" />
+          <ScalarProperty Name="JAM_SELESAI" ColumnName="JAM_SELESAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JADWAL_PERAWAT">
+      <EntityTypeMapping TypeName="DBRSModel.JADWAL_PERAWAT">
+        <MappingFragment StoreEntitySet="JADWAL_PERAWAT">
+          <ScalarProperty Name="JADWAL_ID" ColumnName="JADWAL_ID" />
+          <ScalarProperty Name="HARI" ColumnName="HARI" />
+          <ScalarProperty Name="JAM_MULAI" ColumnName="JAM_MULAI" />
+          <ScalarProperty Name="JAM_SELESAI" ColumnName="JAM_SELESAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JENIS_OBAT">
+      <EntityTypeMapping TypeName="DBRSModel.JENIS_OBAT">
+        <MappingFragment StoreEntitySet="JENIS_OBAT">
+          <ScalarProperty Name="JENIS_OBAT_ID" ColumnName="JENIS_OBAT_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JENIS_RUANGAN">
+      <EntityTypeMapping TypeName="DBRSModel.JENIS_RUANGAN">
+        <MappingFragment StoreEntitySet="JENIS_RUANGAN">
+          <ScalarProperty Name="JENIS_RUANGAN_ID" ColumnName="JENIS_RUANGAN_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="HARGA" ColumnName="HARGA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OBATs">
+      <EntityTypeMapping TypeName="DBRSModel.OBAT">
+        <MappingFragment StoreEntitySet="OBAT">
+          <ScalarProperty Name="OBAT_ID" ColumnName="OBAT_ID" />
+          <ScalarProperty Name="JENIS_OBAT_ID" ColumnName="JENIS_OBAT_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="HARGA" ColumnName="HARGA" />
+          <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+          <ScalarProperty Name="DESKRIPSI" ColumnName="DESKRIPSI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PASIENs">
+      <EntityTypeMapping TypeName="DBRSModel.PASIEN">
+        <MappingFragment StoreEntitySet="PASIEN">
+          <ScalarProperty Name="PASIEN_ID" ColumnName="PASIEN_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="TANGGAL_LAHIR" ColumnName="TANGGAL_LAHIR" />
+          <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+          <ScalarProperty Name="NO_TELP" ColumnName="NO_TELP" />
+          <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="KELUHAN" ColumnName="KELUHAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEGAWAIs">
+      <EntityTypeMapping TypeName="DBRSModel.PEGAWAI">
+        <MappingFragment StoreEntitySet="PEGAWAI">
+          <ScalarProperty Name="PEGAWAI_ID" ColumnName="PEGAWAI_ID" />
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+          <ScalarProperty Name="NO_TELP" ColumnName="NO_TELP" />
+          <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERAWATs">
+      <EntityTypeMapping TypeName="DBRSModel.PERAWAT">
+        <MappingFragment StoreEntitySet="PERAWAT">
+          <ScalarProperty Name="PERAWAT_ID" ColumnName="PERAWAT_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+          <ScalarProperty Name="NO_TELP" ColumnName="NO_TELP" />
+          <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POLIs">
+      <EntityTypeMapping TypeName="DBRSModel.POLI">
+        <MappingFragment StoreEntitySet="POLI">
+          <ScalarProperty Name="POLI_ID" ColumnName="POLI_ID" />
+          <ScalarProperty Name="TIPE_POLI_ID" ColumnName="TIPE_POLI_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="HARGA" ColumnName="HARGA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RAWAT_INAP">
+      <EntityTypeMapping TypeName="DBRSModel.RAWAT_INAP">
+        <MappingFragment StoreEntitySet="RAWAT_INAP">
+          <ScalarProperty Name="RAWAT_INAP_ID" ColumnName="RAWAT_INAP_ID" />
+          <ScalarProperty Name="TGL_MASUK" ColumnName="TGL_MASUK" />
+          <ScalarProperty Name="TGL_KELUAR" ColumnName="TGL_KELUAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RELASI_JADWAL_DOKTER">
+      <EntityTypeMapping TypeName="DBRSModel.RELASI_JADWAL_DOKTER">
+        <MappingFragment StoreEntitySet="RELASI_JADWAL_DOKTER">
+          <ScalarProperty Name="JADWAL_DOKTER_ID" ColumnName="JADWAL_DOKTER_ID" />
+          <ScalarProperty Name="DOKTER_ID" ColumnName="DOKTER_ID" />
+          <ScalarProperty Name="JADWAL_ID" ColumnName="JADWAL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RELASI_JADWAL_PERAWAT">
+      <EntityTypeMapping TypeName="DBRSModel.RELASI_JADWAL_PERAWAT">
+        <MappingFragment StoreEntitySet="RELASI_JADWAL_PERAWAT">
+          <ScalarProperty Name="JADWAL_PERAWAT_ID" ColumnName="JADWAL_PERAWAT_ID" />
+          <ScalarProperty Name="PERAWAT_ID" ColumnName="PERAWAT_ID" />
+          <ScalarProperty Name="JADWAL_ID" ColumnName="JADWAL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RELASI_TRANSAKSI_DOKTER">
+      <EntityTypeMapping TypeName="DBRSModel.RELASI_TRANSAKSI_DOKTER">
+        <MappingFragment StoreEntitySet="RELASI_TRANSAKSI_DOKTER">
+          <ScalarProperty Name="TRANSAKSI_DOKTER_ID" ColumnName="TRANSAKSI_DOKTER_ID" />
+          <ScalarProperty Name="DOKTER_ID" ColumnName="DOKTER_ID" />
+          <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RELASI_TRANSAKSI_PEGAWAI">
+      <EntityTypeMapping TypeName="DBRSModel.RELASI_TRANSAKSI_PEGAWAI">
+        <MappingFragment StoreEntitySet="RELASI_TRANSAKSI_PEGAWAI">
+          <ScalarProperty Name="TRANSAKSI_PEGAWAI_ID" ColumnName="TRANSAKSI_PEGAWAI_ID" />
+          <ScalarProperty Name="PEGAWAI_ID" ColumnName="PEGAWAI_ID" />
+          <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RELASI_TRANSAKSI_PERAWAT">
+      <EntityTypeMapping TypeName="DBRSModel.RELASI_TRANSAKSI_PERAWAT">
+        <MappingFragment StoreEntitySet="RELASI_TRANSAKSI_PERAWAT">
+          <ScalarProperty Name="TRANSAKSI_PERAWAT_ID" ColumnName="TRANSAKSI_PERAWAT_ID" />
+          <ScalarProperty Name="PERAWAT_ID" ColumnName="PERAWAT_ID" />
+          <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLEs">
+      <EntityTypeMapping TypeName="DBRSModel.ROLE">
+        <MappingFragment StoreEntitySet="ROLE">
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RUANGANs">
+      <EntityTypeMapping TypeName="DBRSModel.RUANGAN">
+        <MappingFragment StoreEntitySet="RUANGAN">
+          <ScalarProperty Name="RUANGAN_ID" ColumnName="RUANGAN_ID" />
+          <ScalarProperty Name="JENIS_RUANGAN_ID" ColumnName="JENIS_RUANGAN_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPECIALIS">
+      <EntityTypeMapping TypeName="DBRSModel.SPECIALI">
+        <MappingFragment StoreEntitySet="SPECIALIS">
+          <ScalarProperty Name="SPECIALIS_ID" ColumnName="SPECIALIS_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DBRSModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPE_POLI">
+      <EntityTypeMapping TypeName="DBRSModel.TIPE_POLI">
+        <MappingFragment StoreEntitySet="TIPE_POLI">
+          <ScalarProperty Name="TIPE_POLI_ID" ColumnName="TIPE_POLI_ID" />
+          <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANSAKSIs">
+      <EntityTypeMapping TypeName="DBRSModel.TRANSAKSI">
+        <MappingFragment StoreEntitySet="TRANSAKSI">
+          <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+          <ScalarProperty Name="PASIEN_ID" ColumnName="PASIEN_ID" />
+          <ScalarProperty Name="DETIL_RUANGAN_ID" ColumnName="DETIL_RUANGAN_ID" />
+          <ScalarProperty Name="RAWAT_INAP_ID" ColumnName="RAWAT_INAP_ID" />
+          <ScalarProperty Name="TANGGAL_TRANSAKSI" ColumnName="TANGGAL_TRANSAKSI" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="KELUHAN" ColumnName="KELUHAN" />
+          <ScalarProperty Name="TOTALHARGA" ColumnName="TOTALHARGA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

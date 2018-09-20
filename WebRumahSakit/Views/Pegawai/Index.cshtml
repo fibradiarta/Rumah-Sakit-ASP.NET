@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebRumahSakit.Models.PEGAWAI>
 @{
     Layout = "~/Views/Shared/_LayoutDasboard.cshtml";
     ViewBag.Title = "Index";
@@ -28,15 +28,15 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <button class="btn btn-success btn-sm" id="insert" data-toggle="modal" data-target="#insertPegawai"><i class="fa fa-plus-square"></i></button>
+                        <a class="btn btn-success btn-sm" id="insert" href="@Url.Action("Create","Pegawai")"><i class="fa fa-plus-square"></i></a>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Role Name</th>
                                     <th>Full Name</th>
+                                    <th>Role Name</th>
                                     <th>Address</th>
                                     <th>Phone</th>
                                     <th>Gender</th>
@@ -45,63 +45,44 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach (var item in Model)
+                                {
                                 <tr>
-                                    <td>1</td>
-                                    <td>Cashier</td>
-                                    <td>Tsani</td>
-                                    <td>Jl.Giwangan No.50</td>
-                                    <td>082245123543</td>
-                                    <td>Perempuan</td>
-                                    <td>Tsani@gmail.com</td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editPegawai"><i class="fa fa-edit" ></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deletePegawai"><i class="fa fa-trash" ></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailPegawai"><i class="fa fa-info-circle" ></i></button>
+                                        @Html.DisplayFor(modelItem => item.PEGAWAI_ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NAMA)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ROLE.NAMA)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ALAMAT)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NO_TELP)
+                                    </td>
+                                    <td>
+                                        @if (item.JENIS_KELAMIN == true)
+                                        {
+                                            @Html.DisplayName("Laki-laki")
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayName("Perempuan")
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EMAIL)
+                                    </td>
+                                    <td class="text-center">
+                                        <a class="btn btn-warning btn-sm" id="edit" href="@Url.Action("Edit","Pegawai", new { id = item.PEGAWAI_ID })"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-danger btn-sm" id="delete" href="@Url.Action("Delete","Pegawai", new { id = item.PEGAWAI_ID })"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-primary btn-sm" id="detail" href="@Url.Action("Details","Pegawai", new { id = item.PEGAWAI_ID })"><i class="fa fa-info-circle"></i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Cashier</td>
-                                    <td>Tsani</td>
-                                    <td>Jl.Giwangan No.50</td>
-                                    <td>082245123543</td>
-                                    <td>Perempuan</td>
-                                    <td>Tsani@gmail.com</td>
-                                    <td>
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editPegawai"><i class="fa fa-edit" ></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deletePegawai"><i class="fa fa-trash" ></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail"><i class="fa fa-info-circle" data-toggle="modal" data-target="#detailPegawai"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Cashier</td>
-                                    <td>Tsani</td>
-                                    <td>Jl.Giwangan No.50</td>
-                                    <td>082245123543</td>
-                                    <td>Perempuan</td>
-                                    <td>Tsani@gmail.com</td>
-                                    <td>
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editPegawai"><i class="fa fa-edit" ></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deletePegawai"><i class="fa fa-trash" ></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailPegawai"><i class="fa fa-info-circle" ></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Cashier</td>
-                                    <td>Tsani</td>
-                                    <td>Jl.Giwangan No.50</td>
-                                    <td>082245123543</td>
-                                    <td>Perempuan</td>
-                                    <td>Tsani@gmail.com</td>
-                                    <td>
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editPegawai"><i class="fa fa-edit" ></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deletePegawai"><i class="fa fa-trash" ></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailPegawai"><i class="fa fa-info-circle" ></i></button>
-                                    </td>
-                                </tr>
-
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -110,7 +91,7 @@
         </div>
     </div>
     <!-- .animated -->
-    <!--modal insert-->
+    @*<!--modal insert-->
     <div class="modal fade" id="insertPegawai" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -296,7 +277,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
     
 

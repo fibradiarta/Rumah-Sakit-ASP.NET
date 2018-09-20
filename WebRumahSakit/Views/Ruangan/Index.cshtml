@@ -4,6 +4,8 @@
     ViewBag.Title = "Index";
 }
 
+@model IEnumerable<WebRumahSakit.Models.RUANGAN>
+
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
@@ -30,7 +32,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <button class="btn btn-success btn-sm" id="insert" data-toggle="modal" data-target="#insertRuangan"><i class="fa fa-plus-square"></i></button>
+                        <a class="btn btn-success btn-sm" id="insert" href="@Url.Action("Create","Ruangan")"><i class="fa fa-plus-square"> Create</i></a>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -38,221 +40,47 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Room Name</th>
-                                    <th>Type</th>
+                                    <th>Room Type</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach (var item in Model)
+                                {
                                 <tr>
-                                    <td>1</td>
-                                    <td>Anggrek</td>
-                                    <td>Kelas I</td>
-                                    <td>Available</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editRuangan"><i class="fa fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteRuangan"><i class="fa fa-trash"></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailRuangan"><i class="fa fa-info-circle"></i></button>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RUANGAN_ID)
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Mawar</td>
-                                    <td>Kelas II</td>
-                                    <td>Available</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editRuangan"><i class="fa fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteRuangan"><i class="fa fa-trash"></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailRuangan"><i class="fa fa-info-circle"></i></button>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NAMA)
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Melati</td>
-                                    <td>Kelas III</td>
-                                    <td>Available</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editRuangan"><i class="fa fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteRuangan"><i class="fa fa-trash"></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailRuangan"><i class="fa fa-info-circle"></i></button>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JENIS_RUANGAN.NAMA)
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Soka</td>
-                                    <td>Kelas I</td>
-                                    <td>Available</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editRuangan"><i class="fa fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteRuangan"><i class="fa fa-trash"></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailRuangan"><i class="fa fa-info-circle"></i></button>
+                                    <td>
+                                        @if (item.STATUS == true)
+                                        {
+                                            @Html.DisplayName("Available")
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayName("Unavailable")
+                                        }
                                     </td>
-                                </tr>
 
-
-                            </tbody>
+                                    <td class="text-center">
+                                        <a class="btn btn-warning btn-sm" id="insert" href="@Url.Action("Edit","Ruangan", new { id = item.RUANGAN_ID })"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-danger btn-sm" id="insert" href="@Url.Action("Delete","Ruangan", new { id = item.RUANGAN_ID })"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-primary btn-sm" id="insert" href="@Url.Action("Details","Ruangan", new { id = item.RUANGAN_ID })"><i class="fa fa-info-circle"></i></a>
+                                    </td>
+                                </tr>
+                                }
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div><!-- .animated -->
-    <!--modal insert-->
-    <div class="modal fade" id="insertRuangan" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="mediumModalLabel">Insert Room</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="post" class="">
-                        <div class="form-group">
-                            <label for="nf-email" class=" form-control-label">Room Name</label>
-                            <input type="text" id="roomName" name="roomName" placeholder="Enter Room Name.." class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <div>
-                                <label for="nf-password" class=" form-control-label">Type</label>
-                            </div>
-                            <div>
-                                <select class="form-control" tabindex="1">
-                                    <option value="">-Select Type-</option>
-                                    <option value="2">Kelas I</option>
-                                    <option value="3">Kelas II</option>
-                                    <option value="3">Kelas III</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="nf-password" class=" form-control-label">Status</label>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="rbAvailable" name="rbStatus" checked>
-                                <label class="custom-control-label" for="rbLaki">Available</label>
-                            </div>
-
-                            <!-- Default checked -->
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="rbUnavailable" name="rbStatus">
-                                <label class="custom-control-label" for="rbPerempuan">Unavailable</label>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--modal edit-->
-    <div class="modal fade" id="editRuangan" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="mediumModalLabel">Edit Room</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="post" class="">
-                        <div class="form-group">
-                            <label for="nf-email" class=" form-control-label">Room Name</label>
-                            <input type="text" id="roomName" name="roomName" placeholder="Enter Room Name.." class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <div>
-                                <label for="nf-password" class=" form-control-label">Type</label>
-                            </div>
-                            <div>
-                                <select class="form-control" tabindex="1">
-                                    <option value="">-Select Type-</option>
-                                    <option value="2">Kelas I</option>
-                                    <option value="3">Kelas II</option>
-                                    <option value="3">Kelas III</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="nf-password" class=" form-control-label">Status</label>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="rbAvailable" name="rbStatus" checked>
-                                <label class="custom-control-label" for="rbLaki">Available</label>
-                            </div>
-
-                            <!-- Default checked -->
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="rbUnavailable" name="rbStatus">
-                                <label class="custom-control-label" for="rbPerempuan">Unavailable</label>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--modal delete-->
-    <div class="modal fade" id="deleteRuangan" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="mediumModalLabel">Delete Room</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-center">
-                        Are you sure want to delet this data?
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Confirm</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--modal detail-->
-    <div class="modal fade" id="detailRuangan" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="mediumModalLabel">Detail Room</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p class="justify-content-center">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum scelerisque augue nisl, et accumsan massa rutrum sit amet.
-                        Vestibulum iaculis lorem semper nibh ultricies, et malesuada libero sodales. Aliquam ultricies diam nec tortor fringilla euismod.
-                        Integer elit risus, consectetur vel sagittis at, finibus nec quam. In mi mauris, mollis eget elit sit amet, suscipit euismod neque.
-                        Pellentesque tincidunt nulla eu ultricies tincidunt. Aenean laoreet dui non condimentum vulputate. Curabitur ullamcorper, lacus ac ultricies pulvinar,
-                        arcu velit scelerisque nunc, vitae convallis tellus velit ut lectus. Sed id tellus non tellus feugiat semper. Duis dictum dui ut dolor commodo, eu sollicitudin metus aliquam.
-                        Maecenas at sapien ipsum. Mauris id risus vitae dui viverra vestibulum in nec arcu. Etiam cursus suscipit erat, nec finibus neque.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-    
+<!--modal insert-->

@@ -1,0 +1,1538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBRSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DETAIL_TRANSAKSI_RUANGAN">
+          <Key>
+            <PropertyRef Name="DETIL_RUANGAN_ID" />
+          </Key>
+          <Property Name="DETIL_RUANGAN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RUANGAN_ID" Type="int" />
+          <Property Name="JUMLAH_HARI" Type="int" />
+          <Property Name="SUBTOTAL" Type="int" />
+        </EntityType>
+        <EntityType Name="DETIL_TRANSAKSI_OBAT">
+          <Key>
+            <PropertyRef Name="DETIL_OBAT_ID" />
+          </Key>
+          <Property Name="DETIL_OBAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OBAT_ID" Type="int" />
+          <Property Name="TRANSAKSI_ID" Type="int" />
+          <Property Name="JUMLAH" Type="int" />
+          <Property Name="SUBTOTAL" Type="int" />
+        </EntityType>
+        <EntityType Name="DOKTER">
+          <Key>
+            <PropertyRef Name="DOKTER_ID" />
+          </Key>
+          <Property Name="DOKTER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SPECIALIS_ID" Type="int" />
+          <Property Name="POLI_ID" Type="int" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+          <Property Name="ALAMAT" Type="varchar" MaxLength="255" />
+          <Property Name="NO_TELP" Type="varchar" MaxLength="12" />
+          <Property Name="JENIS_KELAMIN" Type="bit" />
+          <Property Name="STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="JADWAL_DOKTER">
+          <Key>
+            <PropertyRef Name="JADWAL_ID" />
+          </Key>
+          <Property Name="JADWAL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HARI" Type="varchar" MaxLength="10" />
+          <Property Name="JAM_MULAI" Type="datetime" />
+          <Property Name="JAM_SELESAI" Type="datetime" />
+        </EntityType>
+        <EntityType Name="JADWAL_PERAWAT">
+          <Key>
+            <PropertyRef Name="JADWAL_ID" />
+          </Key>
+          <Property Name="JADWAL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HARI" Type="varchar" MaxLength="10" />
+          <Property Name="JAM_MULAI" Type="datetime" />
+          <Property Name="JAM_SELESAI" Type="datetime" />
+        </EntityType>
+        <EntityType Name="JENIS_OBAT">
+          <Key>
+            <PropertyRef Name="JENIS_OBAT_ID" />
+          </Key>
+          <Property Name="JENIS_OBAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="JENIS_RUANGAN">
+          <Key>
+            <PropertyRef Name="JENIS_RUANGAN_ID" />
+          </Key>
+          <Property Name="JENIS_RUANGAN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+          <Property Name="HARGA" Type="int" />
+        </EntityType>
+        <EntityType Name="OBAT">
+          <Key>
+            <PropertyRef Name="OBAT_ID" />
+          </Key>
+          <Property Name="OBAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JENIS_OBAT_ID" Type="int" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+          <Property Name="HARGA" Type="int" />
+          <Property Name="STOCK" Type="int" />
+          <Property Name="DESKRIPSI" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PASIEN">
+          <Key>
+            <PropertyRef Name="PASIEN_ID" />
+          </Key>
+          <Property Name="PASIEN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+          <Property Name="TANGGAL_LAHIR" Type="datetime" />
+          <Property Name="ALAMAT" Type="varchar" MaxLength="255" />
+          <Property Name="NO_TELP" Type="varchar" MaxLength="12" />
+          <Property Name="JENIS_KELAMIN" Type="bit" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="KELUHAN" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PEGAWAI">
+          <Key>
+            <PropertyRef Name="PEGAWAI_ID" />
+          </Key>
+          <Property Name="PEGAWAI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROLE_ID" Type="int" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+          <Property Name="ALAMAT" Type="varchar" MaxLength="255" />
+          <Property Name="NO_TELP" Type="varchar" MaxLength="12" />
+          <Property Name="JENIS_KELAMIN" Type="bit" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="PERAWAT">
+          <Key>
+            <PropertyRef Name="PERAWAT_ID" />
+          </Key>
+          <Property Name="PERAWAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+          <Property Name="ALAMAT" Type="varchar" MaxLength="255" />
+          <Property Name="NO_TELP" Type="varchar" MaxLength="12" />
+          <Property Name="JENIS_KELAMIN" Type="bit" />
+          <Property Name="STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="POLI">
+          <Key>
+            <PropertyRef Name="POLI_ID" />
+          </Key>
+          <Property Name="POLI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPE_POLI_ID" Type="int" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+          <Property Name="HARGA" Type="int" />
+        </EntityType>
+        <EntityType Name="RAWAT_INAP">
+          <Key>
+            <PropertyRef Name="RAWAT_INAP_ID" />
+          </Key>
+          <Property Name="RAWAT_INAP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TGL_MASUK" Type="datetime" />
+          <Property Name="TGL_KELUAR" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RELASI_JADWAL_DOKTER">
+          <Key>
+            <PropertyRef Name="JADWAL_DOKTER_ID" />
+          </Key>
+          <Property Name="JADWAL_DOKTER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DOKTER_ID" Type="int" />
+          <Property Name="JADWAL_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="RELASI_JADWAL_PERAWAT">
+          <Key>
+            <PropertyRef Name="JADWAL_PERAWAT_ID" />
+          </Key>
+          <Property Name="JADWAL_PERAWAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERAWAT_ID" Type="int" />
+          <Property Name="JADWAL_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="RELASI_TRANSAKSI_DOKTER">
+          <Key>
+            <PropertyRef Name="TRANSAKSI_DOKTER_ID" />
+          </Key>
+          <Property Name="TRANSAKSI_DOKTER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DOKTER_ID" Type="int" />
+          <Property Name="TRANSAKSI_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="RELASI_TRANSAKSI_PEGAWAI">
+          <Key>
+            <PropertyRef Name="TRANSAKSI_PEGAWAI_ID" />
+          </Key>
+          <Property Name="TRANSAKSI_PEGAWAI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PEGAWAI_ID" Type="int" Nullable="false" />
+          <Property Name="TRANSAKSI_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RELASI_TRANSAKSI_PERAWAT">
+          <Key>
+            <PropertyRef Name="TRANSAKSI_PERAWAT_ID" />
+          </Key>
+          <Property Name="TRANSAKSI_PERAWAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERAWAT_ID" Type="int" />
+          <Property Name="TRANSAKSI_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_ID" />
+          </Key>
+          <Property Name="ROLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RUANGAN">
+          <Key>
+            <PropertyRef Name="RUANGAN_ID" />
+          </Key>
+          <Property Name="RUANGAN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JENIS_RUANGAN_ID" Type="int" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+          <Property Name="STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="SPECIALIS">
+          <Key>
+            <PropertyRef Name="SPECIALIS_ID" />
+          </Key>
+          <Property Name="SPECIALIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TIPE_POLI">
+          <Key>
+            <PropertyRef Name="TIPE_POLI_ID" />
+          </Key>
+          <Property Name="TIPE_POLI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAMA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TRANSAKSI">
+          <Key>
+            <PropertyRef Name="TRANSAKSI_ID" />
+          </Key>
+          <Property Name="TRANSAKSI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PASIEN_ID" Type="int" />
+          <Property Name="DETIL_RUANGAN_ID" Type="int" />
+          <Property Name="RAWAT_INAP_ID" Type="int" />
+          <Property Name="TANGGAL_TRANSAKSI" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="KELUHAN" Type="varchar" MaxLength="255" />
+          <Property Name="TOTALHARGA" Type="int" />
+        </EntityType>
+        <Association Name="FK_DETAIL_T_REFERENCE_RUANGAN">
+          <End Role="RUANGAN" Type="Self.RUANGAN" Multiplicity="0..1" />
+          <End Role="DETAIL_TRANSAKSI_RUANGAN" Type="Self.DETAIL_TRANSAKSI_RUANGAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RUANGAN">
+              <PropertyRef Name="RUANGAN_ID" />
+            </Principal>
+            <Dependent Role="DETAIL_TRANSAKSI_RUANGAN">
+              <PropertyRef Name="RUANGAN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETIL_TR_REFERENCE_OBAT">
+          <End Role="OBAT" Type="Self.OBAT" Multiplicity="0..1" />
+          <End Role="DETIL_TRANSAKSI_OBAT" Type="Self.DETIL_TRANSAKSI_OBAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBAT">
+              <PropertyRef Name="OBAT_ID" />
+            </Principal>
+            <Dependent Role="DETIL_TRANSAKSI_OBAT">
+              <PropertyRef Name="OBAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETIL_TR_REFERENCE_TRANSAKS">
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="0..1" />
+          <End Role="DETIL_TRANSAKSI_OBAT" Type="Self.DETIL_TRANSAKSI_OBAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSAKSI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Principal>
+            <Dependent Role="DETIL_TRANSAKSI_OBAT">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOKTER_POLI">
+          <End Role="POLI" Type="Self.POLI" Multiplicity="0..1" />
+          <End Role="DOKTER" Type="Self.DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POLI">
+              <PropertyRef Name="POLI_ID" />
+            </Principal>
+            <Dependent Role="DOKTER">
+              <PropertyRef Name="POLI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOKTER_REFERENCE_SPECIALI">
+          <End Role="SPECIALIS" Type="Self.SPECIALIS" Multiplicity="0..1" />
+          <End Role="DOKTER" Type="Self.DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPECIALIS">
+              <PropertyRef Name="SPECIALIS_ID" />
+            </Principal>
+            <Dependent Role="DOKTER">
+              <PropertyRef Name="SPECIALIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OBAT_REFERENCE_JENIS_OB">
+          <End Role="JENIS_OBAT" Type="Self.JENIS_OBAT" Multiplicity="0..1" />
+          <End Role="OBAT" Type="Self.OBAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JENIS_OBAT">
+              <PropertyRef Name="JENIS_OBAT_ID" />
+            </Principal>
+            <Dependent Role="OBAT">
+              <PropertyRef Name="JENIS_OBAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PEGAWAI_REFERENCE_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+          <End Role="PEGAWAI" Type="Self.PEGAWAI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ROLE_ID" />
+            </Principal>
+            <Dependent Role="PEGAWAI">
+              <PropertyRef Name="ROLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLI_TIPE_POLI">
+          <End Role="TIPE_POLI" Type="Self.TIPE_POLI" Multiplicity="0..1" />
+          <End Role="POLI" Type="Self.POLI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPE_POLI">
+              <PropertyRef Name="TIPE_POLI_ID" />
+            </Principal>
+            <Dependent Role="POLI">
+              <PropertyRef Name="TIPE_POLI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_J_REFERENCE_DOKTER">
+          <End Role="DOKTER" Type="Self.DOKTER" Multiplicity="0..1" />
+          <End Role="RELASI_JADWAL_DOKTER" Type="Self.RELASI_JADWAL_DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOKTER">
+              <PropertyRef Name="DOKTER_ID" />
+            </Principal>
+            <Dependent Role="RELASI_JADWAL_DOKTER">
+              <PropertyRef Name="DOKTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_J_REFERENCE_JADWAL_D">
+          <End Role="JADWAL_DOKTER" Type="Self.JADWAL_DOKTER" Multiplicity="0..1" />
+          <End Role="RELASI_JADWAL_DOKTER" Type="Self.RELASI_JADWAL_DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JADWAL_DOKTER">
+              <PropertyRef Name="JADWAL_ID" />
+            </Principal>
+            <Dependent Role="RELASI_JADWAL_DOKTER">
+              <PropertyRef Name="JADWAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_J_REFERENCE_JADWAL_P">
+          <End Role="JADWAL_PERAWAT" Type="Self.JADWAL_PERAWAT" Multiplicity="0..1" />
+          <End Role="RELASI_JADWAL_PERAWAT" Type="Self.RELASI_JADWAL_PERAWAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JADWAL_PERAWAT">
+              <PropertyRef Name="JADWAL_ID" />
+            </Principal>
+            <Dependent Role="RELASI_JADWAL_PERAWAT">
+              <PropertyRef Name="JADWAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_J_REFERENCE_PERAWAT">
+          <End Role="PERAWAT" Type="Self.PERAWAT" Multiplicity="0..1" />
+          <End Role="RELASI_JADWAL_PERAWAT" Type="Self.RELASI_JADWAL_PERAWAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERAWAT">
+              <PropertyRef Name="PERAWAT_ID" />
+            </Principal>
+            <Dependent Role="RELASI_JADWAL_PERAWAT">
+              <PropertyRef Name="PERAWAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_DOKTER">
+          <End Role="DOKTER" Type="Self.DOKTER" Multiplicity="0..1" />
+          <End Role="RELASI_TRANSAKSI_DOKTER" Type="Self.RELASI_TRANSAKSI_DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOKTER">
+              <PropertyRef Name="DOKTER_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_DOKTER">
+              <PropertyRef Name="DOKTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_PEGAWAI">
+          <End Role="PEGAWAI" Type="Self.PEGAWAI" Multiplicity="1" />
+          <End Role="RELASI_TRANSAKSI_PEGAWAI" Type="Self.RELASI_TRANSAKSI_PEGAWAI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEGAWAI">
+              <PropertyRef Name="PEGAWAI_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_PEGAWAI">
+              <PropertyRef Name="PEGAWAI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_PERAWAT">
+          <End Role="PERAWAT" Type="Self.PERAWAT" Multiplicity="0..1" />
+          <End Role="RELASI_TRANSAKSI_PERAWAT" Type="Self.RELASI_TRANSAKSI_PERAWAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERAWAT">
+              <PropertyRef Name="PERAWAT_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_PERAWAT">
+              <PropertyRef Name="PERAWAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_TRANSAKS">
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="0..1" />
+          <End Role="RELASI_TRANSAKSI_DOKTER" Type="Self.RELASI_TRANSAKSI_DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSAKSI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_DOKTER">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_TRANSAKSI_P">
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="1" />
+          <End Role="RELASI_TRANSAKSI_PEGAWAI" Type="Self.RELASI_TRANSAKSI_PEGAWAI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSAKSI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_PEGAWAI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_TT_REFERENCE_TRANSAKSI">
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="0..1" />
+          <End Role="RELASI_TRANSAKSI_PERAWAT" Type="Self.RELASI_TRANSAKSI_PERAWAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSAKSI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_PERAWAT">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RUANGAN_REFERENCE_JENIS_RU">
+          <End Role="JENIS_RUANGAN" Type="Self.JENIS_RUANGAN" Multiplicity="0..1" />
+          <End Role="RUANGAN" Type="Self.RUANGAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JENIS_RUANGAN">
+              <PropertyRef Name="JENIS_RUANGAN_ID" />
+            </Principal>
+            <Dependent Role="RUANGAN">
+              <PropertyRef Name="JENIS_RUANGAN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSAKS_REFERENCE_DETAIL_T">
+          <End Role="DETAIL_TRANSAKSI_RUANGAN" Type="Self.DETAIL_TRANSAKSI_RUANGAN" Multiplicity="0..1" />
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETAIL_TRANSAKSI_RUANGAN">
+              <PropertyRef Name="DETIL_RUANGAN_ID" />
+            </Principal>
+            <Dependent Role="TRANSAKSI">
+              <PropertyRef Name="DETIL_RUANGAN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSAKS_REFERENCE_PASIEN">
+          <End Role="PASIEN" Type="Self.PASIEN" Multiplicity="0..1" />
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PASIEN">
+              <PropertyRef Name="PASIEN_ID" />
+            </Principal>
+            <Dependent Role="TRANSAKSI">
+              <PropertyRef Name="PASIEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSAKS_REFERENCE_RAWAT_IN">
+          <End Role="RAWAT_INAP" Type="Self.RAWAT_INAP" Multiplicity="0..1" />
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAWAT_INAP">
+              <PropertyRef Name="RAWAT_INAP_ID" />
+            </Principal>
+            <Dependent Role="TRANSAKSI">
+              <PropertyRef Name="RAWAT_INAP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBRSModelStoreContainer">
+          <EntitySet Name="DETAIL_TRANSAKSI_RUANGAN" EntityType="Self.DETAIL_TRANSAKSI_RUANGAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETIL_TRANSAKSI_OBAT" EntityType="Self.DETIL_TRANSAKSI_OBAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOKTER" EntityType="Self.DOKTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JADWAL_DOKTER" EntityType="Self.JADWAL_DOKTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JADWAL_PERAWAT" EntityType="Self.JADWAL_PERAWAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JENIS_OBAT" EntityType="Self.JENIS_OBAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JENIS_RUANGAN" EntityType="Self.JENIS_RUANGAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBAT" EntityType="Self.OBAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PASIEN" EntityType="Self.PASIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PEGAWAI" EntityType="Self.PEGAWAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERAWAT" EntityType="Self.PERAWAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POLI" EntityType="Self.POLI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAWAT_INAP" EntityType="Self.RAWAT_INAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RELASI_JADWAL_DOKTER" EntityType="Self.RELASI_JADWAL_DOKTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RELASI_JADWAL_PERAWAT" EntityType="Self.RELASI_JADWAL_PERAWAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RELASI_TRANSAKSI_DOKTER" EntityType="Self.RELASI_TRANSAKSI_DOKTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RELASI_TRANSAKSI_PEGAWAI" EntityType="Self.RELASI_TRANSAKSI_PEGAWAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RELASI_TRANSAKSI_PERAWAT" EntityType="Self.RELASI_TRANSAKSI_PERAWAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RUANGAN" EntityType="Self.RUANGAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SPECIALIS" EntityType="Self.SPECIALIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPE_POLI" EntityType="Self.TIPE_POLI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSAKSI" EntityType="Self.TRANSAKSI" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DETAIL_T_REFERENCE_RUANGAN" Association="Self.FK_DETAIL_T_REFERENCE_RUANGAN">
+            <End Role="RUANGAN" EntitySet="RUANGAN" />
+            <End Role="DETAIL_TRANSAKSI_RUANGAN" EntitySet="DETAIL_TRANSAKSI_RUANGAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETIL_TR_REFERENCE_OBAT" Association="Self.FK_DETIL_TR_REFERENCE_OBAT">
+            <End Role="OBAT" EntitySet="OBAT" />
+            <End Role="DETIL_TRANSAKSI_OBAT" EntitySet="DETIL_TRANSAKSI_OBAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETIL_TR_REFERENCE_TRANSAKS" Association="Self.FK_DETIL_TR_REFERENCE_TRANSAKS">
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSI" />
+            <End Role="DETIL_TRANSAKSI_OBAT" EntitySet="DETIL_TRANSAKSI_OBAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOKTER_POLI" Association="Self.FK_DOKTER_POLI">
+            <End Role="POLI" EntitySet="POLI" />
+            <End Role="DOKTER" EntitySet="DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOKTER_REFERENCE_SPECIALI" Association="Self.FK_DOKTER_REFERENCE_SPECIALI">
+            <End Role="SPECIALIS" EntitySet="SPECIALIS" />
+            <End Role="DOKTER" EntitySet="DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OBAT_REFERENCE_JENIS_OB" Association="Self.FK_OBAT_REFERENCE_JENIS_OB">
+            <End Role="JENIS_OBAT" EntitySet="JENIS_OBAT" />
+            <End Role="OBAT" EntitySet="OBAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PEGAWAI_REFERENCE_ROLE" Association="Self.FK_PEGAWAI_REFERENCE_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="PEGAWAI" EntitySet="PEGAWAI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLI_TIPE_POLI" Association="Self.FK_POLI_TIPE_POLI">
+            <End Role="TIPE_POLI" EntitySet="TIPE_POLI" />
+            <End Role="POLI" EntitySet="POLI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_J_REFERENCE_DOKTER" Association="Self.FK_RELASI_J_REFERENCE_DOKTER">
+            <End Role="DOKTER" EntitySet="DOKTER" />
+            <End Role="RELASI_JADWAL_DOKTER" EntitySet="RELASI_JADWAL_DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_J_REFERENCE_JADWAL_D" Association="Self.FK_RELASI_J_REFERENCE_JADWAL_D">
+            <End Role="JADWAL_DOKTER" EntitySet="JADWAL_DOKTER" />
+            <End Role="RELASI_JADWAL_DOKTER" EntitySet="RELASI_JADWAL_DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_J_REFERENCE_JADWAL_P" Association="Self.FK_RELASI_J_REFERENCE_JADWAL_P">
+            <End Role="JADWAL_PERAWAT" EntitySet="JADWAL_PERAWAT" />
+            <End Role="RELASI_JADWAL_PERAWAT" EntitySet="RELASI_JADWAL_PERAWAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_J_REFERENCE_PERAWAT" Association="Self.FK_RELASI_J_REFERENCE_PERAWAT">
+            <End Role="PERAWAT" EntitySet="PERAWAT" />
+            <End Role="RELASI_JADWAL_PERAWAT" EntitySet="RELASI_JADWAL_PERAWAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_DOKTER" Association="Self.FK_RELASI_T_REFERENCE_DOKTER">
+            <End Role="DOKTER" EntitySet="DOKTER" />
+            <End Role="RELASI_TRANSAKSI_DOKTER" EntitySet="RELASI_TRANSAKSI_DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_PEGAWAI" Association="Self.FK_RELASI_T_REFERENCE_PEGAWAI">
+            <End Role="PEGAWAI" EntitySet="PEGAWAI" />
+            <End Role="RELASI_TRANSAKSI_PEGAWAI" EntitySet="RELASI_TRANSAKSI_PEGAWAI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_PERAWAT" Association="Self.FK_RELASI_T_REFERENCE_PERAWAT">
+            <End Role="PERAWAT" EntitySet="PERAWAT" />
+            <End Role="RELASI_TRANSAKSI_PERAWAT" EntitySet="RELASI_TRANSAKSI_PERAWAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_TRANSAKS" Association="Self.FK_RELASI_T_REFERENCE_TRANSAKS">
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSI" />
+            <End Role="RELASI_TRANSAKSI_DOKTER" EntitySet="RELASI_TRANSAKSI_DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_TRANSAKSI_P" Association="Self.FK_RELASI_T_REFERENCE_TRANSAKSI_P">
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSI" />
+            <End Role="RELASI_TRANSAKSI_PEGAWAI" EntitySet="RELASI_TRANSAKSI_PEGAWAI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_TT_REFERENCE_TRANSAKSI" Association="Self.FK_RELASI_TT_REFERENCE_TRANSAKSI">
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSI" />
+            <End Role="RELASI_TRANSAKSI_PERAWAT" EntitySet="RELASI_TRANSAKSI_PERAWAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RUANGAN_REFERENCE_JENIS_RU" Association="Self.FK_RUANGAN_REFERENCE_JENIS_RU">
+            <End Role="JENIS_RUANGAN" EntitySet="JENIS_RUANGAN" />
+            <End Role="RUANGAN" EntitySet="RUANGAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSAKS_REFERENCE_DETAIL_T" Association="Self.FK_TRANSAKS_REFERENCE_DETAIL_T">
+            <End Role="DETAIL_TRANSAKSI_RUANGAN" EntitySet="DETAIL_TRANSAKSI_RUANGAN" />
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSAKS_REFERENCE_PASIEN" Association="Self.FK_TRANSAKS_REFERENCE_PASIEN">
+            <End Role="PASIEN" EntitySet="PASIEN" />
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSAKS_REFERENCE_RAWAT_IN" Association="Self.FK_TRANSAKS_REFERENCE_RAWAT_IN">
+            <End Role="RAWAT_INAP" EntitySet="RAWAT_INAP" />
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSI" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBRSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DETAIL_TRANSAKSI_RUANGAN">
+          <Key>
+            <PropertyRef Name="DETIL_RUANGAN_ID" />
+          </Key>
+          <Property Name="DETIL_RUANGAN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RUANGAN_ID" Type="Int32" />
+          <Property Name="JUMLAH_HARI" Type="Int32" />
+          <Property Name="SUBTOTAL" Type="Int32" />
+          <NavigationProperty Name="RUANGAN" Relationship="Self.FK_DETAIL_T_REFERENCE_RUANGAN" FromRole="DETAIL_TRANSAKSI_RUANGAN" ToRole="RUANGAN" />
+          <NavigationProperty Name="TRANSAKSIs" Relationship="Self.FK_TRANSAKS_REFERENCE_DETAIL_T" FromRole="DETAIL_TRANSAKSI_RUANGAN" ToRole="TRANSAKSI" />
+        </EntityType>
+        <EntityType Name="DETIL_TRANSAKSI_OBAT">
+          <Key>
+            <PropertyRef Name="DETIL_OBAT_ID" />
+          </Key>
+          <Property Name="DETIL_OBAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OBAT_ID" Type="Int32" />
+          <Property Name="TRANSAKSI_ID" Type="Int32" />
+          <Property Name="JUMLAH" Type="Int32" />
+          <Property Name="SUBTOTAL" Type="Int32" />
+          <NavigationProperty Name="OBAT" Relationship="Self.FK_DETIL_TR_REFERENCE_OBAT" FromRole="DETIL_TRANSAKSI_OBAT" ToRole="OBAT" />
+          <NavigationProperty Name="TRANSAKSI" Relationship="Self.FK_DETIL_TR_REFERENCE_TRANSAKS" FromRole="DETIL_TRANSAKSI_OBAT" ToRole="TRANSAKSI" />
+        </EntityType>
+        <EntityType Name="DOKTER">
+          <Key>
+            <PropertyRef Name="DOKTER_ID" />
+          </Key>
+          <Property Name="DOKTER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SPECIALIS_ID" Type="Int32" />
+          <Property Name="POLI_ID" Type="Int32" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALAMAT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NO_TELP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="JENIS_KELAMIN" Type="Boolean" />
+          <Property Name="STATUS" Type="Boolean" />
+          <NavigationProperty Name="POLI" Relationship="Self.FK_DOKTER_POLI" FromRole="DOKTER" ToRole="POLI" />
+          <NavigationProperty Name="SPECIALI" Relationship="Self.FK_DOKTER_REFERENCE_SPECIALI" FromRole="DOKTER" ToRole="SPECIALIS" />
+          <NavigationProperty Name="RELASI_JADWAL_DOKTER" Relationship="Self.FK_RELASI_J_REFERENCE_DOKTER" FromRole="DOKTER" ToRole="RELASI_JADWAL_DOKTER" />
+          <NavigationProperty Name="RELASI_TRANSAKSI_DOKTER" Relationship="Self.FK_RELASI_T_REFERENCE_DOKTER" FromRole="DOKTER" ToRole="RELASI_TRANSAKSI_DOKTER" />
+        </EntityType>
+        <EntityType Name="JADWAL_DOKTER">
+          <Key>
+            <PropertyRef Name="JADWAL_ID" />
+          </Key>
+          <Property Name="JADWAL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HARI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="JAM_MULAI" Type="DateTime" Precision="3" />
+          <Property Name="JAM_SELESAI" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RELASI_JADWAL_DOKTER" Relationship="Self.FK_RELASI_J_REFERENCE_JADWAL_D" FromRole="JADWAL_DOKTER" ToRole="RELASI_JADWAL_DOKTER" />
+        </EntityType>
+        <EntityType Name="JADWAL_PERAWAT">
+          <Key>
+            <PropertyRef Name="JADWAL_ID" />
+          </Key>
+          <Property Name="JADWAL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HARI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="JAM_MULAI" Type="DateTime" Precision="3" />
+          <Property Name="JAM_SELESAI" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RELASI_JADWAL_PERAWAT" Relationship="Self.FK_RELASI_J_REFERENCE_JADWAL_P" FromRole="JADWAL_PERAWAT" ToRole="RELASI_JADWAL_PERAWAT" />
+        </EntityType>
+        <EntityType Name="JENIS_OBAT">
+          <Key>
+            <PropertyRef Name="JENIS_OBAT_ID" />
+          </Key>
+          <Property Name="JENIS_OBAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OBATs" Relationship="Self.FK_OBAT_REFERENCE_JENIS_OB" FromRole="JENIS_OBAT" ToRole="OBAT" />
+        </EntityType>
+        <EntityType Name="JENIS_RUANGAN">
+          <Key>
+            <PropertyRef Name="JENIS_RUANGAN_ID" />
+          </Key>
+          <Property Name="JENIS_RUANGAN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HARGA" Type="Int32" />
+          <NavigationProperty Name="RUANGANs" Relationship="Self.FK_RUANGAN_REFERENCE_JENIS_RU" FromRole="JENIS_RUANGAN" ToRole="RUANGAN" />
+        </EntityType>
+        <EntityType Name="OBAT">
+          <Key>
+            <PropertyRef Name="OBAT_ID" />
+          </Key>
+          <Property Name="OBAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JENIS_OBAT_ID" Type="Int32" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HARGA" Type="Int32" />
+          <Property Name="STOCK" Type="Int32" />
+          <Property Name="DESKRIPSI" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DETIL_TRANSAKSI_OBAT" Relationship="Self.FK_DETIL_TR_REFERENCE_OBAT" FromRole="OBAT" ToRole="DETIL_TRANSAKSI_OBAT" />
+          <NavigationProperty Name="JENIS_OBAT" Relationship="Self.FK_OBAT_REFERENCE_JENIS_OB" FromRole="OBAT" ToRole="JENIS_OBAT" />
+        </EntityType>
+        <EntityType Name="PASIEN">
+          <Key>
+            <PropertyRef Name="PASIEN_ID" />
+          </Key>
+          <Property Name="PASIEN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TANGGAL_LAHIR" Type="DateTime" Precision="3" />
+          <Property Name="ALAMAT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NO_TELP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="JENIS_KELAMIN" Type="Boolean" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="KELUHAN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRANSAKSIs" Relationship="Self.FK_TRANSAKS_REFERENCE_PASIEN" FromRole="PASIEN" ToRole="TRANSAKSI" />
+        </EntityType>
+        <EntityType Name="PEGAWAI">
+          <Key>
+            <PropertyRef Name="PEGAWAI_ID" />
+          </Key>
+          <Property Name="PEGAWAI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROLE_ID" Type="Int32" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALAMAT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NO_TELP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="JENIS_KELAMIN" Type="Boolean" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ROLE" Relationship="Self.FK_PEGAWAI_REFERENCE_ROLE" FromRole="PEGAWAI" ToRole="ROLE" />
+          <NavigationProperty Name="RELASI_TRANSAKSI_PEGAWAI" Relationship="Self.FK_RELASI_T_REFERENCE_PEGAWAI" FromRole="PEGAWAI" ToRole="RELASI_TRANSAKSI_PEGAWAI" />
+        </EntityType>
+        <EntityType Name="PERAWAT">
+          <Key>
+            <PropertyRef Name="PERAWAT_ID" />
+          </Key>
+          <Property Name="PERAWAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALAMAT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NO_TELP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="JENIS_KELAMIN" Type="Boolean" />
+          <Property Name="STATUS" Type="Boolean" />
+          <NavigationProperty Name="RELASI_JADWAL_PERAWAT" Relationship="Self.FK_RELASI_J_REFERENCE_PERAWAT" FromRole="PERAWAT" ToRole="RELASI_JADWAL_PERAWAT" />
+          <NavigationProperty Name="RELASI_TRANSAKSI_PERAWAT" Relationship="Self.FK_RELASI_T_REFERENCE_PERAWAT" FromRole="PERAWAT" ToRole="RELASI_TRANSAKSI_PERAWAT" />
+        </EntityType>
+        <EntityType Name="POLI">
+          <Key>
+            <PropertyRef Name="POLI_ID" />
+          </Key>
+          <Property Name="POLI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPE_POLI_ID" Type="Int32" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HARGA" Type="Int32" />
+          <NavigationProperty Name="DOKTERs" Relationship="Self.FK_DOKTER_POLI" FromRole="POLI" ToRole="DOKTER" />
+          <NavigationProperty Name="TIPE_POLI" Relationship="Self.FK_POLI_TIPE_POLI" FromRole="POLI" ToRole="TIPE_POLI" />
+        </EntityType>
+        <EntityType Name="RAWAT_INAP">
+          <Key>
+            <PropertyRef Name="RAWAT_INAP_ID" />
+          </Key>
+          <Property Name="RAWAT_INAP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TGL_MASUK" Type="DateTime" Precision="3" />
+          <Property Name="TGL_KELUAR" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TRANSAKSIs" Relationship="Self.FK_TRANSAKS_REFERENCE_RAWAT_IN" FromRole="RAWAT_INAP" ToRole="TRANSAKSI" />
+        </EntityType>
+        <EntityType Name="RELASI_JADWAL_DOKTER">
+          <Key>
+            <PropertyRef Name="JADWAL_DOKTER_ID" />
+          </Key>
+          <Property Name="JADWAL_DOKTER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DOKTER_ID" Type="Int32" />
+          <Property Name="JADWAL_ID" Type="Int32" />
+          <NavigationProperty Name="DOKTER" Relationship="Self.FK_RELASI_J_REFERENCE_DOKTER" FromRole="RELASI_JADWAL_DOKTER" ToRole="DOKTER" />
+          <NavigationProperty Name="JADWAL_DOKTER" Relationship="Self.FK_RELASI_J_REFERENCE_JADWAL_D" FromRole="RELASI_JADWAL_DOKTER" ToRole="JADWAL_DOKTER" />
+        </EntityType>
+        <EntityType Name="RELASI_JADWAL_PERAWAT">
+          <Key>
+            <PropertyRef Name="JADWAL_PERAWAT_ID" />
+          </Key>
+          <Property Name="JADWAL_PERAWAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERAWAT_ID" Type="Int32" />
+          <Property Name="JADWAL_ID" Type="Int32" />
+          <NavigationProperty Name="JADWAL_PERAWAT" Relationship="Self.FK_RELASI_J_REFERENCE_JADWAL_P" FromRole="RELASI_JADWAL_PERAWAT" ToRole="JADWAL_PERAWAT" />
+          <NavigationProperty Name="PERAWAT" Relationship="Self.FK_RELASI_J_REFERENCE_PERAWAT" FromRole="RELASI_JADWAL_PERAWAT" ToRole="PERAWAT" />
+        </EntityType>
+        <EntityType Name="RELASI_TRANSAKSI_DOKTER">
+          <Key>
+            <PropertyRef Name="TRANSAKSI_DOKTER_ID" />
+          </Key>
+          <Property Name="TRANSAKSI_DOKTER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DOKTER_ID" Type="Int32" />
+          <Property Name="TRANSAKSI_ID" Type="Int32" />
+          <NavigationProperty Name="DOKTER" Relationship="Self.FK_RELASI_T_REFERENCE_DOKTER" FromRole="RELASI_TRANSAKSI_DOKTER" ToRole="DOKTER" />
+          <NavigationProperty Name="TRANSAKSI" Relationship="Self.FK_RELASI_T_REFERENCE_TRANSAKS" FromRole="RELASI_TRANSAKSI_DOKTER" ToRole="TRANSAKSI" />
+        </EntityType>
+        <EntityType Name="RELASI_TRANSAKSI_PEGAWAI">
+          <Key>
+            <PropertyRef Name="TRANSAKSI_PEGAWAI_ID" />
+          </Key>
+          <Property Name="TRANSAKSI_PEGAWAI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PEGAWAI_ID" Type="Int32" Nullable="false" />
+          <Property Name="TRANSAKSI_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PEGAWAI" Relationship="Self.FK_RELASI_T_REFERENCE_PEGAWAI" FromRole="RELASI_TRANSAKSI_PEGAWAI" ToRole="PEGAWAI" />
+          <NavigationProperty Name="TRANSAKSI" Relationship="Self.FK_RELASI_T_REFERENCE_TRANSAKSI_P" FromRole="RELASI_TRANSAKSI_PEGAWAI" ToRole="TRANSAKSI" />
+        </EntityType>
+        <EntityType Name="RELASI_TRANSAKSI_PERAWAT">
+          <Key>
+            <PropertyRef Name="TRANSAKSI_PERAWAT_ID" />
+          </Key>
+          <Property Name="TRANSAKSI_PERAWAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERAWAT_ID" Type="Int32" />
+          <Property Name="TRANSAKSI_ID" Type="Int32" />
+          <NavigationProperty Name="PERAWAT" Relationship="Self.FK_RELASI_T_REFERENCE_PERAWAT" FromRole="RELASI_TRANSAKSI_PERAWAT" ToRole="PERAWAT" />
+          <NavigationProperty Name="TRANSAKSI" Relationship="Self.FK_RELASI_TT_REFERENCE_TRANSAKSI" FromRole="RELASI_TRANSAKSI_PERAWAT" ToRole="TRANSAKSI" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_ID" />
+          </Key>
+          <Property Name="ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PEGAWAIs" Relationship="Self.FK_PEGAWAI_REFERENCE_ROLE" FromRole="ROLE" ToRole="PEGAWAI" />
+        </EntityType>
+        <EntityType Name="RUANGAN">
+          <Key>
+            <PropertyRef Name="RUANGAN_ID" />
+          </Key>
+          <Property Name="RUANGAN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JENIS_RUANGAN_ID" Type="Int32" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="Boolean" />
+          <NavigationProperty Name="DETAIL_TRANSAKSI_RUANGAN" Relationship="Self.FK_DETAIL_T_REFERENCE_RUANGAN" FromRole="RUANGAN" ToRole="DETAIL_TRANSAKSI_RUANGAN" />
+          <NavigationProperty Name="JENIS_RUANGAN" Relationship="Self.FK_RUANGAN_REFERENCE_JENIS_RU" FromRole="RUANGAN" ToRole="JENIS_RUANGAN" />
+        </EntityType>
+        <EntityType Name="SPECIALI">
+          <Key>
+            <PropertyRef Name="SPECIALIS_ID" />
+          </Key>
+          <Property Name="SPECIALIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DOKTERs" Relationship="Self.FK_DOKTER_REFERENCE_SPECIALI" FromRole="SPECIALIS" ToRole="DOKTER" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TIPE_POLI">
+          <Key>
+            <PropertyRef Name="TIPE_POLI_ID" />
+          </Key>
+          <Property Name="TIPE_POLI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="POLIs" Relationship="Self.FK_POLI_TIPE_POLI" FromRole="TIPE_POLI" ToRole="POLI" />
+        </EntityType>
+        <EntityType Name="TRANSAKSI">
+          <Key>
+            <PropertyRef Name="TRANSAKSI_ID" />
+          </Key>
+          <Property Name="TRANSAKSI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PASIEN_ID" Type="Int32" />
+          <Property Name="DETIL_RUANGAN_ID" Type="Int32" />
+          <Property Name="RAWAT_INAP_ID" Type="Int32" />
+          <Property Name="TANGGAL_TRANSAKSI" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="KELUHAN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TOTALHARGA" Type="Int32" />
+          <NavigationProperty Name="DETAIL_TRANSAKSI_RUANGAN" Relationship="Self.FK_TRANSAKS_REFERENCE_DETAIL_T" FromRole="TRANSAKSI" ToRole="DETAIL_TRANSAKSI_RUANGAN" />
+          <NavigationProperty Name="DETIL_TRANSAKSI_OBAT" Relationship="Self.FK_DETIL_TR_REFERENCE_TRANSAKS" FromRole="TRANSAKSI" ToRole="DETIL_TRANSAKSI_OBAT" />
+          <NavigationProperty Name="PASIEN" Relationship="Self.FK_TRANSAKS_REFERENCE_PASIEN" FromRole="TRANSAKSI" ToRole="PASIEN" />
+          <NavigationProperty Name="RAWAT_INAP" Relationship="Self.FK_TRANSAKS_REFERENCE_RAWAT_IN" FromRole="TRANSAKSI" ToRole="RAWAT_INAP" />
+          <NavigationProperty Name="RELASI_TRANSAKSI_DOKTER" Relationship="Self.FK_RELASI_T_REFERENCE_TRANSAKS" FromRole="TRANSAKSI" ToRole="RELASI_TRANSAKSI_DOKTER" />
+          <NavigationProperty Name="RELASI_TRANSAKSI_PEGAWAI" Relationship="Self.FK_RELASI_T_REFERENCE_TRANSAKSI_P" FromRole="TRANSAKSI" ToRole="RELASI_TRANSAKSI_PEGAWAI" />
+          <NavigationProperty Name="RELASI_TRANSAKSI_PERAWAT" Relationship="Self.FK_RELASI_TT_REFERENCE_TRANSAKSI" FromRole="TRANSAKSI" ToRole="RELASI_TRANSAKSI_PERAWAT" />
+        </EntityType>
+        <Association Name="FK_DETAIL_T_REFERENCE_RUANGAN">
+          <End Role="RUANGAN" Type="Self.RUANGAN" Multiplicity="0..1" />
+          <End Role="DETAIL_TRANSAKSI_RUANGAN" Type="Self.DETAIL_TRANSAKSI_RUANGAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RUANGAN">
+              <PropertyRef Name="RUANGAN_ID" />
+            </Principal>
+            <Dependent Role="DETAIL_TRANSAKSI_RUANGAN">
+              <PropertyRef Name="RUANGAN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSAKS_REFERENCE_DETAIL_T">
+          <End Role="DETAIL_TRANSAKSI_RUANGAN" Type="Self.DETAIL_TRANSAKSI_RUANGAN" Multiplicity="0..1" />
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETAIL_TRANSAKSI_RUANGAN">
+              <PropertyRef Name="DETIL_RUANGAN_ID" />
+            </Principal>
+            <Dependent Role="TRANSAKSI">
+              <PropertyRef Name="DETIL_RUANGAN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETIL_TR_REFERENCE_OBAT">
+          <End Role="OBAT" Type="Self.OBAT" Multiplicity="0..1" />
+          <End Role="DETIL_TRANSAKSI_OBAT" Type="Self.DETIL_TRANSAKSI_OBAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBAT">
+              <PropertyRef Name="OBAT_ID" />
+            </Principal>
+            <Dependent Role="DETIL_TRANSAKSI_OBAT">
+              <PropertyRef Name="OBAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETIL_TR_REFERENCE_TRANSAKS">
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="0..1" />
+          <End Role="DETIL_TRANSAKSI_OBAT" Type="Self.DETIL_TRANSAKSI_OBAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSAKSI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Principal>
+            <Dependent Role="DETIL_TRANSAKSI_OBAT">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOKTER_POLI">
+          <End Role="POLI" Type="Self.POLI" Multiplicity="0..1" />
+          <End Role="DOKTER" Type="Self.DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POLI">
+              <PropertyRef Name="POLI_ID" />
+            </Principal>
+            <Dependent Role="DOKTER">
+              <PropertyRef Name="POLI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOKTER_REFERENCE_SPECIALI">
+          <End Role="SPECIALIS" Type="Self.SPECIALI" Multiplicity="0..1" />
+          <End Role="DOKTER" Type="Self.DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPECIALIS">
+              <PropertyRef Name="SPECIALIS_ID" />
+            </Principal>
+            <Dependent Role="DOKTER">
+              <PropertyRef Name="SPECIALIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_J_REFERENCE_DOKTER">
+          <End Role="DOKTER" Type="Self.DOKTER" Multiplicity="0..1" />
+          <End Role="RELASI_JADWAL_DOKTER" Type="Self.RELASI_JADWAL_DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOKTER">
+              <PropertyRef Name="DOKTER_ID" />
+            </Principal>
+            <Dependent Role="RELASI_JADWAL_DOKTER">
+              <PropertyRef Name="DOKTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_DOKTER">
+          <End Role="DOKTER" Type="Self.DOKTER" Multiplicity="0..1" />
+          <End Role="RELASI_TRANSAKSI_DOKTER" Type="Self.RELASI_TRANSAKSI_DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOKTER">
+              <PropertyRef Name="DOKTER_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_DOKTER">
+              <PropertyRef Name="DOKTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_J_REFERENCE_JADWAL_D">
+          <End Role="JADWAL_DOKTER" Type="Self.JADWAL_DOKTER" Multiplicity="0..1" />
+          <End Role="RELASI_JADWAL_DOKTER" Type="Self.RELASI_JADWAL_DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JADWAL_DOKTER">
+              <PropertyRef Name="JADWAL_ID" />
+            </Principal>
+            <Dependent Role="RELASI_JADWAL_DOKTER">
+              <PropertyRef Name="JADWAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_J_REFERENCE_JADWAL_P">
+          <End Role="JADWAL_PERAWAT" Type="Self.JADWAL_PERAWAT" Multiplicity="0..1" />
+          <End Role="RELASI_JADWAL_PERAWAT" Type="Self.RELASI_JADWAL_PERAWAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JADWAL_PERAWAT">
+              <PropertyRef Name="JADWAL_ID" />
+            </Principal>
+            <Dependent Role="RELASI_JADWAL_PERAWAT">
+              <PropertyRef Name="JADWAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OBAT_REFERENCE_JENIS_OB">
+          <End Role="JENIS_OBAT" Type="Self.JENIS_OBAT" Multiplicity="0..1" />
+          <End Role="OBAT" Type="Self.OBAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JENIS_OBAT">
+              <PropertyRef Name="JENIS_OBAT_ID" />
+            </Principal>
+            <Dependent Role="OBAT">
+              <PropertyRef Name="JENIS_OBAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RUANGAN_REFERENCE_JENIS_RU">
+          <End Role="JENIS_RUANGAN" Type="Self.JENIS_RUANGAN" Multiplicity="0..1" />
+          <End Role="RUANGAN" Type="Self.RUANGAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JENIS_RUANGAN">
+              <PropertyRef Name="JENIS_RUANGAN_ID" />
+            </Principal>
+            <Dependent Role="RUANGAN">
+              <PropertyRef Name="JENIS_RUANGAN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSAKS_REFERENCE_PASIEN">
+          <End Role="PASIEN" Type="Self.PASIEN" Multiplicity="0..1" />
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PASIEN">
+              <PropertyRef Name="PASIEN_ID" />
+            </Principal>
+            <Dependent Role="TRANSAKSI">
+              <PropertyRef Name="PASIEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PEGAWAI_REFERENCE_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+          <End Role="PEGAWAI" Type="Self.PEGAWAI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ROLE_ID" />
+            </Principal>
+            <Dependent Role="PEGAWAI">
+              <PropertyRef Name="ROLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_PEGAWAI">
+          <End Role="PEGAWAI" Type="Self.PEGAWAI" Multiplicity="1" />
+          <End Role="RELASI_TRANSAKSI_PEGAWAI" Type="Self.RELASI_TRANSAKSI_PEGAWAI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEGAWAI">
+              <PropertyRef Name="PEGAWAI_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_PEGAWAI">
+              <PropertyRef Name="PEGAWAI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_J_REFERENCE_PERAWAT">
+          <End Role="PERAWAT" Type="Self.PERAWAT" Multiplicity="0..1" />
+          <End Role="RELASI_JADWAL_PERAWAT" Type="Self.RELASI_JADWAL_PERAWAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERAWAT">
+              <PropertyRef Name="PERAWAT_ID" />
+            </Principal>
+            <Dependent Role="RELASI_JADWAL_PERAWAT">
+              <PropertyRef Name="PERAWAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_PERAWAT">
+          <End Role="PERAWAT" Type="Self.PERAWAT" Multiplicity="0..1" />
+          <End Role="RELASI_TRANSAKSI_PERAWAT" Type="Self.RELASI_TRANSAKSI_PERAWAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERAWAT">
+              <PropertyRef Name="PERAWAT_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_PERAWAT">
+              <PropertyRef Name="PERAWAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLI_TIPE_POLI">
+          <End Role="TIPE_POLI" Type="Self.TIPE_POLI" Multiplicity="0..1" />
+          <End Role="POLI" Type="Self.POLI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPE_POLI">
+              <PropertyRef Name="TIPE_POLI_ID" />
+            </Principal>
+            <Dependent Role="POLI">
+              <PropertyRef Name="TIPE_POLI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSAKS_REFERENCE_RAWAT_IN">
+          <End Role="RAWAT_INAP" Type="Self.RAWAT_INAP" Multiplicity="0..1" />
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAWAT_INAP">
+              <PropertyRef Name="RAWAT_INAP_ID" />
+            </Principal>
+            <Dependent Role="TRANSAKSI">
+              <PropertyRef Name="RAWAT_INAP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_TRANSAKS">
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="0..1" />
+          <End Role="RELASI_TRANSAKSI_DOKTER" Type="Self.RELASI_TRANSAKSI_DOKTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSAKSI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_DOKTER">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_T_REFERENCE_TRANSAKSI_P">
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="1" />
+          <End Role="RELASI_TRANSAKSI_PEGAWAI" Type="Self.RELASI_TRANSAKSI_PEGAWAI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSAKSI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_PEGAWAI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RELASI_TT_REFERENCE_TRANSAKSI">
+          <End Role="TRANSAKSI" Type="Self.TRANSAKSI" Multiplicity="0..1" />
+          <End Role="RELASI_TRANSAKSI_PERAWAT" Type="Self.RELASI_TRANSAKSI_PERAWAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSAKSI">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Principal>
+            <Dependent Role="RELASI_TRANSAKSI_PERAWAT">
+              <PropertyRef Name="TRANSAKSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBRSEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DETAIL_TRANSAKSI_RUANGAN" EntityType="Self.DETAIL_TRANSAKSI_RUANGAN" />
+          <EntitySet Name="DETIL_TRANSAKSI_OBAT" EntityType="Self.DETIL_TRANSAKSI_OBAT" />
+          <EntitySet Name="DOKTERs" EntityType="Self.DOKTER" />
+          <EntitySet Name="JADWAL_DOKTER" EntityType="Self.JADWAL_DOKTER" />
+          <EntitySet Name="JADWAL_PERAWAT" EntityType="Self.JADWAL_PERAWAT" />
+          <EntitySet Name="JENIS_OBAT" EntityType="Self.JENIS_OBAT" />
+          <EntitySet Name="JENIS_RUANGAN" EntityType="Self.JENIS_RUANGAN" />
+          <EntitySet Name="OBATs" EntityType="Self.OBAT" />
+          <EntitySet Name="PASIENs" EntityType="Self.PASIEN" />
+          <EntitySet Name="PEGAWAIs" EntityType="Self.PEGAWAI" />
+          <EntitySet Name="PERAWATs" EntityType="Self.PERAWAT" />
+          <EntitySet Name="POLIs" EntityType="Self.POLI" />
+          <EntitySet Name="RAWAT_INAP" EntityType="Self.RAWAT_INAP" />
+          <EntitySet Name="RELASI_JADWAL_DOKTER" EntityType="Self.RELASI_JADWAL_DOKTER" />
+          <EntitySet Name="RELASI_JADWAL_PERAWAT" EntityType="Self.RELASI_JADWAL_PERAWAT" />
+          <EntitySet Name="RELASI_TRANSAKSI_DOKTER" EntityType="Self.RELASI_TRANSAKSI_DOKTER" />
+          <EntitySet Name="RELASI_TRANSAKSI_PEGAWAI" EntityType="Self.RELASI_TRANSAKSI_PEGAWAI" />
+          <EntitySet Name="RELASI_TRANSAKSI_PERAWAT" EntityType="Self.RELASI_TRANSAKSI_PERAWAT" />
+          <EntitySet Name="ROLEs" EntityType="Self.ROLE" />
+          <EntitySet Name="RUANGANs" EntityType="Self.RUANGAN" />
+          <EntitySet Name="SPECIALIS" EntityType="Self.SPECIALI" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TIPE_POLI" EntityType="Self.TIPE_POLI" />
+          <EntitySet Name="TRANSAKSIs" EntityType="Self.TRANSAKSI" />
+          <AssociationSet Name="FK_DETAIL_T_REFERENCE_RUANGAN" Association="Self.FK_DETAIL_T_REFERENCE_RUANGAN">
+            <End Role="RUANGAN" EntitySet="RUANGANs" />
+            <End Role="DETAIL_TRANSAKSI_RUANGAN" EntitySet="DETAIL_TRANSAKSI_RUANGAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSAKS_REFERENCE_DETAIL_T" Association="Self.FK_TRANSAKS_REFERENCE_DETAIL_T">
+            <End Role="DETAIL_TRANSAKSI_RUANGAN" EntitySet="DETAIL_TRANSAKSI_RUANGAN" />
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETIL_TR_REFERENCE_OBAT" Association="Self.FK_DETIL_TR_REFERENCE_OBAT">
+            <End Role="OBAT" EntitySet="OBATs" />
+            <End Role="DETIL_TRANSAKSI_OBAT" EntitySet="DETIL_TRANSAKSI_OBAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETIL_TR_REFERENCE_TRANSAKS" Association="Self.FK_DETIL_TR_REFERENCE_TRANSAKS">
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSIs" />
+            <End Role="DETIL_TRANSAKSI_OBAT" EntitySet="DETIL_TRANSAKSI_OBAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOKTER_POLI" Association="Self.FK_DOKTER_POLI">
+            <End Role="POLI" EntitySet="POLIs" />
+            <End Role="DOKTER" EntitySet="DOKTERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOKTER_REFERENCE_SPECIALI" Association="Self.FK_DOKTER_REFERENCE_SPECIALI">
+            <End Role="SPECIALIS" EntitySet="SPECIALIS" />
+            <End Role="DOKTER" EntitySet="DOKTERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_J_REFERENCE_DOKTER" Association="Self.FK_RELASI_J_REFERENCE_DOKTER">
+            <End Role="DOKTER" EntitySet="DOKTERs" />
+            <End Role="RELASI_JADWAL_DOKTER" EntitySet="RELASI_JADWAL_DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_DOKTER" Association="Self.FK_RELASI_T_REFERENCE_DOKTER">
+            <End Role="DOKTER" EntitySet="DOKTERs" />
+            <End Role="RELASI_TRANSAKSI_DOKTER" EntitySet="RELASI_TRANSAKSI_DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_J_REFERENCE_JADWAL_D" Association="Self.FK_RELASI_J_REFERENCE_JADWAL_D">
+            <End Role="JADWAL_DOKTER" EntitySet="JADWAL_DOKTER" />
+            <End Role="RELASI_JADWAL_DOKTER" EntitySet="RELASI_JADWAL_DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_J_REFERENCE_JADWAL_P" Association="Self.FK_RELASI_J_REFERENCE_JADWAL_P">
+            <End Role="JADWAL_PERAWAT" EntitySet="JADWAL_PERAWAT" />
+            <End Role="RELASI_JADWAL_PERAWAT" EntitySet="RELASI_JADWAL_PERAWAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OBAT_REFERENCE_JENIS_OB" Association="Self.FK_OBAT_REFERENCE_JENIS_OB">
+            <End Role="JENIS_OBAT" EntitySet="JENIS_OBAT" />
+            <End Role="OBAT" EntitySet="OBATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RUANGAN_REFERENCE_JENIS_RU" Association="Self.FK_RUANGAN_REFERENCE_JENIS_RU">
+            <End Role="JENIS_RUANGAN" EntitySet="JENIS_RUANGAN" />
+            <End Role="RUANGAN" EntitySet="RUANGANs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSAKS_REFERENCE_PASIEN" Association="Self.FK_TRANSAKS_REFERENCE_PASIEN">
+            <End Role="PASIEN" EntitySet="PASIENs" />
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PEGAWAI_REFERENCE_ROLE" Association="Self.FK_PEGAWAI_REFERENCE_ROLE">
+            <End Role="ROLE" EntitySet="ROLEs" />
+            <End Role="PEGAWAI" EntitySet="PEGAWAIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_PEGAWAI" Association="Self.FK_RELASI_T_REFERENCE_PEGAWAI">
+            <End Role="PEGAWAI" EntitySet="PEGAWAIs" />
+            <End Role="RELASI_TRANSAKSI_PEGAWAI" EntitySet="RELASI_TRANSAKSI_PEGAWAI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_J_REFERENCE_PERAWAT" Association="Self.FK_RELASI_J_REFERENCE_PERAWAT">
+            <End Role="PERAWAT" EntitySet="PERAWATs" />
+            <End Role="RELASI_JADWAL_PERAWAT" EntitySet="RELASI_JADWAL_PERAWAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_PERAWAT" Association="Self.FK_RELASI_T_REFERENCE_PERAWAT">
+            <End Role="PERAWAT" EntitySet="PERAWATs" />
+            <End Role="RELASI_TRANSAKSI_PERAWAT" EntitySet="RELASI_TRANSAKSI_PERAWAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLI_TIPE_POLI" Association="Self.FK_POLI_TIPE_POLI">
+            <End Role="TIPE_POLI" EntitySet="TIPE_POLI" />
+            <End Role="POLI" EntitySet="POLIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSAKS_REFERENCE_RAWAT_IN" Association="Self.FK_TRANSAKS_REFERENCE_RAWAT_IN">
+            <End Role="RAWAT_INAP" EntitySet="RAWAT_INAP" />
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_TRANSAKS" Association="Self.FK_RELASI_T_REFERENCE_TRANSAKS">
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSIs" />
+            <End Role="RELASI_TRANSAKSI_DOKTER" EntitySet="RELASI_TRANSAKSI_DOKTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_T_REFERENCE_TRANSAKSI_P" Association="Self.FK_RELASI_T_REFERENCE_TRANSAKSI_P">
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSIs" />
+            <End Role="RELASI_TRANSAKSI_PEGAWAI" EntitySet="RELASI_TRANSAKSI_PEGAWAI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RELASI_TT_REFERENCE_TRANSAKSI" Association="Self.FK_RELASI_TT_REFERENCE_TRANSAKSI">
+            <End Role="TRANSAKSI" EntitySet="TRANSAKSIs" />
+            <End Role="RELASI_TRANSAKSI_PERAWAT" EntitySet="RELASI_TRANSAKSI_PERAWAT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBRSModelStoreContainer" CdmEntityContainer="DBRSEntities3">
+          <EntitySetMapping Name="DETAIL_TRANSAKSI_RUANGAN">
+            <EntityTypeMapping TypeName="DBRSModel.DETAIL_TRANSAKSI_RUANGAN">
+              <MappingFragment StoreEntitySet="DETAIL_TRANSAKSI_RUANGAN">
+                <ScalarProperty Name="DETIL_RUANGAN_ID" ColumnName="DETIL_RUANGAN_ID" />
+                <ScalarProperty Name="RUANGAN_ID" ColumnName="RUANGAN_ID" />
+                <ScalarProperty Name="JUMLAH_HARI" ColumnName="JUMLAH_HARI" />
+                <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETIL_TRANSAKSI_OBAT">
+            <EntityTypeMapping TypeName="DBRSModel.DETIL_TRANSAKSI_OBAT">
+              <MappingFragment StoreEntitySet="DETIL_TRANSAKSI_OBAT">
+                <ScalarProperty Name="DETIL_OBAT_ID" ColumnName="DETIL_OBAT_ID" />
+                <ScalarProperty Name="OBAT_ID" ColumnName="OBAT_ID" />
+                <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+                <ScalarProperty Name="JUMLAH" ColumnName="JUMLAH" />
+                <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOKTERs">
+            <EntityTypeMapping TypeName="DBRSModel.DOKTER">
+              <MappingFragment StoreEntitySet="DOKTER">
+                <ScalarProperty Name="DOKTER_ID" ColumnName="DOKTER_ID" />
+                <ScalarProperty Name="SPECIALIS_ID" ColumnName="SPECIALIS_ID" />
+                <ScalarProperty Name="POLI_ID" ColumnName="POLI_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+                <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+                <ScalarProperty Name="NO_TELP" ColumnName="NO_TELP" />
+                <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JADWAL_DOKTER">
+            <EntityTypeMapping TypeName="DBRSModel.JADWAL_DOKTER">
+              <MappingFragment StoreEntitySet="JADWAL_DOKTER">
+                <ScalarProperty Name="JADWAL_ID" ColumnName="JADWAL_ID" />
+                <ScalarProperty Name="HARI" ColumnName="HARI" />
+                <ScalarProperty Name="JAM_MULAI" ColumnName="JAM_MULAI" />
+                <ScalarProperty Name="JAM_SELESAI" ColumnName="JAM_SELESAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JADWAL_PERAWAT">
+            <EntityTypeMapping TypeName="DBRSModel.JADWAL_PERAWAT">
+              <MappingFragment StoreEntitySet="JADWAL_PERAWAT">
+                <ScalarProperty Name="JADWAL_ID" ColumnName="JADWAL_ID" />
+                <ScalarProperty Name="HARI" ColumnName="HARI" />
+                <ScalarProperty Name="JAM_MULAI" ColumnName="JAM_MULAI" />
+                <ScalarProperty Name="JAM_SELESAI" ColumnName="JAM_SELESAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JENIS_OBAT">
+            <EntityTypeMapping TypeName="DBRSModel.JENIS_OBAT">
+              <MappingFragment StoreEntitySet="JENIS_OBAT">
+                <ScalarProperty Name="JENIS_OBAT_ID" ColumnName="JENIS_OBAT_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JENIS_RUANGAN">
+            <EntityTypeMapping TypeName="DBRSModel.JENIS_RUANGAN">
+              <MappingFragment StoreEntitySet="JENIS_RUANGAN">
+                <ScalarProperty Name="JENIS_RUANGAN_ID" ColumnName="JENIS_RUANGAN_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+                <ScalarProperty Name="HARGA" ColumnName="HARGA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBATs">
+            <EntityTypeMapping TypeName="DBRSModel.OBAT">
+              <MappingFragment StoreEntitySet="OBAT">
+                <ScalarProperty Name="OBAT_ID" ColumnName="OBAT_ID" />
+                <ScalarProperty Name="JENIS_OBAT_ID" ColumnName="JENIS_OBAT_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+                <ScalarProperty Name="HARGA" ColumnName="HARGA" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="DESKRIPSI" ColumnName="DESKRIPSI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PASIENs">
+            <EntityTypeMapping TypeName="DBRSModel.PASIEN">
+              <MappingFragment StoreEntitySet="PASIEN">
+                <ScalarProperty Name="PASIEN_ID" ColumnName="PASIEN_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+                <ScalarProperty Name="TANGGAL_LAHIR" ColumnName="TANGGAL_LAHIR" />
+                <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+                <ScalarProperty Name="NO_TELP" ColumnName="NO_TELP" />
+                <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="KELUHAN" ColumnName="KELUHAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEGAWAIs">
+            <EntityTypeMapping TypeName="DBRSModel.PEGAWAI">
+              <MappingFragment StoreEntitySet="PEGAWAI">
+                <ScalarProperty Name="PEGAWAI_ID" ColumnName="PEGAWAI_ID" />
+                <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+                <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+                <ScalarProperty Name="NO_TELP" ColumnName="NO_TELP" />
+                <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERAWATs">
+            <EntityTypeMapping TypeName="DBRSModel.PERAWAT">
+              <MappingFragment StoreEntitySet="PERAWAT">
+                <ScalarProperty Name="PERAWAT_ID" ColumnName="PERAWAT_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+                <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+                <ScalarProperty Name="NO_TELP" ColumnName="NO_TELP" />
+                <ScalarProperty Name="JENIS_KELAMIN" ColumnName="JENIS_KELAMIN" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POLIs">
+            <EntityTypeMapping TypeName="DBRSModel.POLI">
+              <MappingFragment StoreEntitySet="POLI">
+                <ScalarProperty Name="POLI_ID" ColumnName="POLI_ID" />
+                <ScalarProperty Name="TIPE_POLI_ID" ColumnName="TIPE_POLI_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+                <ScalarProperty Name="HARGA" ColumnName="HARGA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAWAT_INAP">
+            <EntityTypeMapping TypeName="DBRSModel.RAWAT_INAP">
+              <MappingFragment StoreEntitySet="RAWAT_INAP">
+                <ScalarProperty Name="RAWAT_INAP_ID" ColumnName="RAWAT_INAP_ID" />
+                <ScalarProperty Name="TGL_MASUK" ColumnName="TGL_MASUK" />
+                <ScalarProperty Name="TGL_KELUAR" ColumnName="TGL_KELUAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELASI_JADWAL_DOKTER">
+            <EntityTypeMapping TypeName="DBRSModel.RELASI_JADWAL_DOKTER">
+              <MappingFragment StoreEntitySet="RELASI_JADWAL_DOKTER">
+                <ScalarProperty Name="JADWAL_DOKTER_ID" ColumnName="JADWAL_DOKTER_ID" />
+                <ScalarProperty Name="DOKTER_ID" ColumnName="DOKTER_ID" />
+                <ScalarProperty Name="JADWAL_ID" ColumnName="JADWAL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELASI_JADWAL_PERAWAT">
+            <EntityTypeMapping TypeName="DBRSModel.RELASI_JADWAL_PERAWAT">
+              <MappingFragment StoreEntitySet="RELASI_JADWAL_PERAWAT">
+                <ScalarProperty Name="JADWAL_PERAWAT_ID" ColumnName="JADWAL_PERAWAT_ID" />
+                <ScalarProperty Name="PERAWAT_ID" ColumnName="PERAWAT_ID" />
+                <ScalarProperty Name="JADWAL_ID" ColumnName="JADWAL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELASI_TRANSAKSI_DOKTER">
+            <EntityTypeMapping TypeName="DBRSModel.RELASI_TRANSAKSI_DOKTER">
+              <MappingFragment StoreEntitySet="RELASI_TRANSAKSI_DOKTER">
+                <ScalarProperty Name="TRANSAKSI_DOKTER_ID" ColumnName="TRANSAKSI_DOKTER_ID" />
+                <ScalarProperty Name="DOKTER_ID" ColumnName="DOKTER_ID" />
+                <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELASI_TRANSAKSI_PEGAWAI">
+            <EntityTypeMapping TypeName="DBRSModel.RELASI_TRANSAKSI_PEGAWAI">
+              <MappingFragment StoreEntitySet="RELASI_TRANSAKSI_PEGAWAI">
+                <ScalarProperty Name="TRANSAKSI_PEGAWAI_ID" ColumnName="TRANSAKSI_PEGAWAI_ID" />
+                <ScalarProperty Name="PEGAWAI_ID" ColumnName="PEGAWAI_ID" />
+                <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELASI_TRANSAKSI_PERAWAT">
+            <EntityTypeMapping TypeName="DBRSModel.RELASI_TRANSAKSI_PERAWAT">
+              <MappingFragment StoreEntitySet="RELASI_TRANSAKSI_PERAWAT">
+                <ScalarProperty Name="TRANSAKSI_PERAWAT_ID" ColumnName="TRANSAKSI_PERAWAT_ID" />
+                <ScalarProperty Name="PERAWAT_ID" ColumnName="PERAWAT_ID" />
+                <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLEs">
+            <EntityTypeMapping TypeName="DBRSModel.ROLE">
+              <MappingFragment StoreEntitySet="ROLE">
+                <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RUANGANs">
+            <EntityTypeMapping TypeName="DBRSModel.RUANGAN">
+              <MappingFragment StoreEntitySet="RUANGAN">
+                <ScalarProperty Name="RUANGAN_ID" ColumnName="RUANGAN_ID" />
+                <ScalarProperty Name="JENIS_RUANGAN_ID" ColumnName="JENIS_RUANGAN_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPECIALIS">
+            <EntityTypeMapping TypeName="DBRSModel.SPECIALI">
+              <MappingFragment StoreEntitySet="SPECIALIS">
+                <ScalarProperty Name="SPECIALIS_ID" ColumnName="SPECIALIS_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBRSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPE_POLI">
+            <EntityTypeMapping TypeName="DBRSModel.TIPE_POLI">
+              <MappingFragment StoreEntitySet="TIPE_POLI">
+                <ScalarProperty Name="TIPE_POLI_ID" ColumnName="TIPE_POLI_ID" />
+                <ScalarProperty Name="NAMA" ColumnName="NAMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSAKSIs">
+            <EntityTypeMapping TypeName="DBRSModel.TRANSAKSI">
+              <MappingFragment StoreEntitySet="TRANSAKSI">
+                <ScalarProperty Name="TRANSAKSI_ID" ColumnName="TRANSAKSI_ID" />
+                <ScalarProperty Name="PASIEN_ID" ColumnName="PASIEN_ID" />
+                <ScalarProperty Name="DETIL_RUANGAN_ID" ColumnName="DETIL_RUANGAN_ID" />
+                <ScalarProperty Name="RAWAT_INAP_ID" ColumnName="RAWAT_INAP_ID" />
+                <ScalarProperty Name="TANGGAL_TRANSAKSI" ColumnName="TANGGAL_TRANSAKSI" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="KELUHAN" ColumnName="KELUHAN" />
+                <ScalarProperty Name="TOTALHARGA" ColumnName="TOTALHARGA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

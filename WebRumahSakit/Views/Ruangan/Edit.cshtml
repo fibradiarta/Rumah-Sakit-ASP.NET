@@ -1,0 +1,96 @@
+﻿@model WebRumahSakit.ViewModels.RuanganViewModels
+
+@{
+    Layout = "~/Views/Shared/_LayoutDasboard.cshtml";
+    ViewBag.Title = "Edit";
+}
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li class="active">Ruangan/Edit</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.RUANGAN_ID)
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Edit Ruangan</strong>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Room Name</label>
+                                        @Html.EditorFor(model => model.NAMA, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.NAMA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Room Type</label>
+                                        @*@Html.DropDownListFor(model => model.JENIS_RUANGAN_ID, (IEnumerable<SelectListItem>)ViewBag.jRuangan, "-Select Type-", new { @class = "form-control", @id = "jenisruangan"})*@
+                                        <select class="form-control" id="JENIS_RUANGAN_ID" name="JENIS_RUANGAN_ID">
+                                            @foreach (var item in (IEnumerable<SelectListItem>)ViewBag.jRuangan)
+                                            {
+                                                if (item.Selected)
+                                                {
+                                                    <option value="@item.Value" selected>@item.Text</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Status</label>
+                                        <div class="radio">
+                                            @Html.RadioButtonFor(model => model.STATUS, true, true) Available
+                                        </div>
+                                        <div class="radio">
+                                            @Html.RadioButtonFor(model => model.STATUS, false, false) Unavailable
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="col-md-12">
+                                <button value="Edit" class="btn btn-primary"><i class="fa fa-dot-circle-o"> Edit</i></button>
+                                <button value="Cancel" class="btn btn-danger"><i class="fa fa-ban"> Cancel</i></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

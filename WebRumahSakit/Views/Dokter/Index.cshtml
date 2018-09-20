@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<WebRumahSakit.Models.DOKTER>
+
 @{
     Layout = "~/Views/Shared/_LayoutDasboard.cshtml";
     ViewBag.Title = "Index";
@@ -30,7 +31,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <button class="btn btn-success btn-sm" id="insert" data-toggle="modal" data-target="#insertDokter"><i class="fa fa-plus-square"></i></button>
+                        <a class="btn btn-success btn-sm" id="insert" href="@Url.Action("Create","Dokter")"><i class="fa fa-plus-square"></i></a>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -46,72 +47,49 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Putu Fibra Permana Diarta</td>
-                                    <td>Anak</td>
-                                    <td>Jl. Tirta Tawar No.50</td>
-                                    <td>082345654567</td>
-                                    <td>Laki-laki</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editDokter"><i class="fa fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteDokter"><i class="fa fa-trash"></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailDokter"><i class="fa fa-info-circle"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Tsani</td>
-                                    <td>Kandungan</td>
-                                    <td>Jl. Wonosari</td>
-                                    <td>082345654567</td>
-                                    <td>Perempuan</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editDokter"><i class="fa fa-edit" ></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteDokter"><i class="fa fa-trash" ></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailDokter"><i class="fa fa-info-circle" ></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Singgih</td>
-                                    <td>Forensik</td>
-                                    <td>Jl. Jakarta Selatan</td>
-                                    <td>082345654567</td>
-                                    <td>Laki-laki</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editDokter"><i class="fa fa-edit" ></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteDokter"><i class="fa fa-trash" ></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailDokter"><i class="fa fa-info-circle"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Rika</td>
-                                    <td>Mata</td>
-                                    <td>Jl. Malang Bersatu</td>
-                                    <td>082345654567</td>
-                                    <td>Laki-laki</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editDokter"><i class="fa fa-edit" ></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteDokter"><i class="fa fa-trash" data-toggle="modal" data-target="#deleteDokter"></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailDokter"><i class="fa fa-info-circle"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>$162,700</td>
-                                    <td>082345654567</td>
-                                    <td>Laki-laki</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-warning btn-sm" id="edit" data-toggle="modal" data-target="#editDokter"><i class="fa fa-edit" ></i></button>
-                                        <button class="btn btn-danger btn-sm" id="delete" data-toggle="modal" data-target="#deleteDokter"><i class="fa fa-trash" ></i></button>
-                                        <button class="btn btn-primary btn-sm" id="detail" data-toggle="modal" data-target="#detailDokter"><i class="fa fa-info-circle" ></i></button>
-                                    </td>
-                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DOKTER_ID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NAMA)
+                                        </td>
+                                        <td>
+                                            @if (item.SPECIALIS_ID != null)
+                                            {
+                                                @Html.DisplayFor(modelItem => item.SPECIALI.NAMA)
+                                            }
+                                            else
+                                            {
+                                                @Html.DisplayName("Non Specialis")
+                                            }
 
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ALAMAT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NO_TELP)
+                                        </td>
+                                        <td>
+                                            @if (item.JENIS_KELAMIN == true)
+                                            {
+                                                @Html.DisplayName("Laki-laki")
+                                            }
+                                            else
+                                            {
+                                                @Html.DisplayName("Perempuan")
+                                            }
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning btn-sm" id="edit" href="@Url.Action("Edit","Dokter", new { id = item.DOKTER_ID })"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-danger btn-sm" id="delete" href="@Url.Action("Delete","Dokter", new { id = item.DOKTER_ID })"><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-primary btn-sm" id="detail" href="@Url.Action("Details","Dokter", new { id = item.DOKTER_ID })"><i class="fa fa-info-circle"></i></a>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -120,7 +98,7 @@
         </div>
     </div><!-- .animated -->
     <!--modal insert-->
-    <div class="modal fade" id="insertDokter" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    @*<div class="modal fade" id="insertDokter" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -311,6 +289,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
     

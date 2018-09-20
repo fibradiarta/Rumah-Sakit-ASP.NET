@@ -1,0 +1,114 @@
+﻿@model WebRumahSakit.Models.DOKTER
+
+@{
+    Layout = "~/Views/Shared/_LayoutDasboard.cshtml";
+    ViewBag.Title = "Delete";
+}
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li class="active">Dokter/Details</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Details Dokter</strong>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Full Name</label>
+                                        @Html.EditorFor(model => model.NAMA, new { htmlAttributes = new { @class = "form-control", @disabled = "" } })
+                                        @Html.ValidationMessageFor(model => model.NAMA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Poly</label>
+                                        @Html.EditorFor(model => model.POLI.NAMA, new { htmlAttributes = new { @class = "form-control", @disabled = "" } })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Specialis</label>
+                                        @Html.EditorFor(model => model.SPECIALI.NAMA, new { htmlAttributes = new { @class = "form-control", @disabled = "" } })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Address</label>
+                                        @Html.TextAreaFor(model => model.ALAMAT, new { @class = "form-control", @disabled = "" })
+                                        @Html.ValidationMessageFor(model => model.ALAMAT, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Phone</label>
+                                        @Html.EditorFor(model => model.NO_TELP, new { htmlAttributes = new { @class = "form-control", @disabled = "" } })
+                                        @Html.ValidationMessageFor(model => model.NO_TELP, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Gender</label>
+                                        @if (Model.JENIS_KELAMIN == true)
+                                        {
+                                            <input type="text" placeholder="Laki-laki" class="form-control" disabled="" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" placeholder="Perempuan" class="form-control" disabled="" />
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Status</label>
+                                        @if (Model.STATUS == true)
+                                        {
+                                            <input type="text" placeholder="Available" class="form-control" disabled="" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" placeholder="Unavailable" class="form-control" disabled="" />
+                                        }
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="col-md-12">
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

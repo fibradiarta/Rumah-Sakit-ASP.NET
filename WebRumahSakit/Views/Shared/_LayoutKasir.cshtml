@@ -25,12 +25,9 @@
     <link rel="stylesheet" href="~/Content/assets/scss/style.css">
     <link href="~/Content/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
-    <!--Datatable-->
+    <!---datatable-->
     <link rel="stylesheet" href="~/Content/assets/css/lib/datatable/dataTables.bootstrap.min.css">
 
-    <!---Combobox-->
-    <link rel="stylesheet" href="~/Content/assets/scss/style.css">
-    <link rel="stylesheet" href="~/Content/assets/css/lib/chosen/chosen.min.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -49,16 +46,17 @@
     <!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
-        @Html.Partial("_PartialSideBarAdmin")
+        @Html.Partial("_PartialSidebarKasir")
     </aside><!-- /#left-panel -->
     <!-- Left Panel -->
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
-        @Html.Partial("_PartialHeaderAdmin")
+        @Html.Partial("_PartialHeaderKasir")
         <!---Content-->
-        @RenderBody()
-        <!-- .content -->
+        <div class="content mt-3">
+            @RenderBody()
+        </div> <!-- .content -->
     </div><!-- /end right-panel -->
     <!-- Right Panel -->
 
@@ -67,7 +65,28 @@
     <script src="~/Content/assets/js/plugins.js"></script>
     <script src="~/Content/assets/js/main.js"></script>
 
+    <!---datatable-->
+    <script src="~/Content/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+    <script src="~/Content/assets/js/lib/data-table/datatables-init.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#bootstrap-data-table-export').DataTable();
+        });
+    </script>
+
     <script src="~/Content/assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="~/Content/assets/js/lib/chart-js/chartjs-init.js"></script>
     <script src="~/Content/assets/js/dashboard.js"></script>
     <script src="~/Content/assets/js/widgets.js"></script>
     <script src="~/Content/assets/js/lib/vector-map/jquery.vmap.js"></script>
@@ -92,27 +111,6 @@
             });
         })(jQuery);
     </script>
-
-    <!---Datatable-->
-    <script src="~/Content/assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/jszip.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/pdfmake.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/vfs_fonts.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/buttons.print.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-    <script src="~/Content/assets/js/lib/data-table/datatables-init.js"></script>
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#bootstrap-data-table-export').DataTable();
-        });
-    </script>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
